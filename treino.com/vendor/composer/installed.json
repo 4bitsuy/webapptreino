@@ -683,8 +683,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         "name": "jgrossi/corcel",
         "version": "v2.5.4",
         "version_normalized": "2.5.4.0",
@@ -697,7 +695,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/corcel/corcel/zipball/c7ce45bd2e933b67b6ecc6d31666889605c8ddd1",
             "reference": "c7ce45bd2e933b67b6ecc6d31666889605c8ddd1",
-=======
+
         "name": "jgrossi/corcel",
         "version": "v2.5.7",
         "version_normalized": "2.5.7.0",
@@ -710,7 +708,6 @@
             "type": "zip",
             "url": "https://api.github.com/repos/corcel/corcel/zipball/e183ebb5e2bfc4d0f47620056e6023b28a5bcde7",
             "reference": "e183ebb5e2bfc4d0f47620056e6023b28a5bcde7",
->>>>>>> fe1eba477633e13ea2dc2431685f3674ca305f61
             "shasum": ""
         },
         "require": {
@@ -726,21 +723,18 @@
             "juniorgrossi/corcel": "self.version"
         },
         "require-dev": {
-<<<<<<< HEAD
             "orchestra/database": "3.5.*",
             "orchestra/testbench": "3.5.*",
             "phpunit/phpunit": "~6.0",
             "satooshi/php-coveralls": "dev-master"
         },
         "time": "2017-10-23T14:39:59+00:00",
-=======
             "codeclimate/php-test-reporter": "^0.4.4",
             "orchestra/database": "3.5.*",
             "orchestra/testbench": "3.5.*",
             "phpunit/phpunit": "~6.0"
         },
         "time": "2018-02-09T18:32:38+00:00",
->>>>>>> fe1eba477633e13ea2dc2431685f3674ca305f61
         "type": "library",
         "extra": {
             "laravel": {
@@ -830,11 +824,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-=======
->>>>>>> d17d55ec0c84d9bfda52c64005de48ce95b53b29
-=======
->>>>>>> fe1eba477633e13ea2dc2431685f3674ca305f61
         "name": "laravel/framework",
         "version": "v5.5.34",
         "version_normalized": "5.5.34.0",
