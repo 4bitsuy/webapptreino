@@ -15,9 +15,21 @@ return array(
     'App\\Http\\Controllers\\BlogController' => $baseDir . '/app/Http/Controllers/BlogController.php',
     'App\\Http\\Controllers\\ContactoController' => $baseDir . '/app/Http/Controllers/ContactoController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> PruebaBD_1.0
     'App\\Http\\Controllers\\CursosController' => $baseDir . '/app/Http/Controllers/CursosController.php',
     'App\\Http\\Controllers\\EscuelaController' => $baseDir . '/app/Http/Controllers/EscuelaController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+=======
+>>>>>>> d17d55ec0c84d9bfda52c64005de48ce95b53b29
+=======
+    'App\\Http\\Controllers\\CursosController' => $baseDir . '/app/Http/Controllers/CursosController.php',
+    'App\\Http\\Controllers\\EscuelaController' => $baseDir . '/app/Http/Controllers/EscuelaController.php',
+    'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+>>>>>>> fe1eba477633e13ea2dc2431685f3674ca305f61
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\GenerateMenus' => $baseDir . '/app/Http/Middleware/GenerateMenus.php',
