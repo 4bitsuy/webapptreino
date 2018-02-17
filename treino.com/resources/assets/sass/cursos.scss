@@ -2,10 +2,11 @@
   padding: 0;
   .fondo-curso{
     padding: 0;
+    cursor: pointer;
     h4{
       text-transform: uppercase;
       position: absolute;
-      z-index: 1;
+      z-index: 3;
       width: 100%;
       text-align: center;
       letter-spacing: 2px;
@@ -27,7 +28,34 @@
     img{
       filter: none!important;
     }
+    z-index: 2;
+    .background-curso{
+      background: rgba(10,34,105,0.15);
+      background: -moz-linear-gradient(top, rgba(10,34,105,0.15) 0%, rgba(94,94,189,0.15) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(10,34,105,0.15)), color-stop(100%, rgba(94,94,189,0.15)));
+      background: -webkit-linear-gradient(top, rgba(10,34,105,0.15) 0%, rgba(94,94,189,0.15) 100%);
+      background: -o-linear-gradient(top, rgba(10,34,105,0.15) 0%, rgba(94,94,189,0.15) 100%);
+      background: -ms-linear-gradient(top, rgba(10,34,105,0.15) 0%, rgba(94,94,189,0.15) 100%);
+      background: linear-gradient(to bottom, rgba(10,34,105,0.15) 0%, rgba(94,94,189,0.15) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a2269', endColorstr='#5e5ebd', GradientType=0 );
+    }
   }
+  .background-curso{
+    background: rgba(10,34,105,0.75);
+    background: -moz-linear-gradient(top, rgba(10,34,105,0.75) 0%, rgba(94,94,189,0.75) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(10,34,105,0.75)), color-stop(100%, rgba(94,94,189,0.75)));
+    background: -webkit-linear-gradient(top, rgba(10,34,105,0.75) 0%, rgba(94,94,189,0.75) 100%);
+    background: -o-linear-gradient(top, rgba(10,34,105,0.75) 0%, rgba(94,94,189,0.75) 100%);
+    background: -ms-linear-gradient(top, rgba(10,34,105,0.75) 0%, rgba(94,94,189,0.75) 100%);
+    background: linear-gradient(to bottom, rgba(10,34,105,0.75) 0%, rgba(94,94,189,0.75) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a2269', endColorstr='#5e5ebd', GradientType=0 );
+    position: absolute;
+    transition: .3s all;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
 }
 
 section.data-cursos{
@@ -75,6 +103,12 @@ section.data-cursos{
   }
   .first{
     .left,.right{
+      @include media(xxs){
+        border-bottom: 1px solid $brand-blue;
+      }
+      @include media(md){
+        border-bottom: none;
+      }
       p{
         font-style: italic;
         font-weight: 700;
@@ -85,14 +119,19 @@ section.data-cursos{
       }
     }
     .left{
-      margin-left: -15px;
+      @include media(md){
+        margin-left: -15px;
+      }
       h6{
         background: #d5d5d5;
         color: #fff;
       }
     }
     .right{
-      margin-right: -15px;
+      @include media(md){
+        margin-right: -15px;
+      }
+
       h6{
         color: #757575;
         background: $white-color;
@@ -117,6 +156,9 @@ section.data-cursos{
           color: #d1d1d1;
           margin-right: 10px;
         }
+      }
+      p{
+        text-align: justify;
       }
     }
   }

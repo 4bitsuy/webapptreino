@@ -5,6 +5,38 @@ var tope = n - 3;
 var ancho = $(window).width();
 
 $(document).ready(function() {
+  /** Generales **/
+  $("input").focus(function() {
+    this.value = "";
+  });
+  $('input').blur( function() {
+    switch (this.id) {
+      case "nombre":
+        this.value = "Nombre";
+        break;
+      case "email":
+        this.value = "Correo Electrónico";
+        break;
+      case "telefono":
+        this.value = "Teléfono";
+        break;
+      default:
+        this.value = this.id;
+    }
+  });
+  $("textarea").focus(function() {
+    this.value = "";
+  });
+  $('textarea').blur( function() {
+    switch (this.id) {
+      case "mensaje":
+        this.value = "Tu Mensaje";
+        break;
+      default:
+        this.value = this.id;
+    }
+  });
+
 
   /** webPage Home **/
   // dibujoTira(n, ancho);

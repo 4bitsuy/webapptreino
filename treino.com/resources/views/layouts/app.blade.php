@@ -7,8 +7,19 @@
 
         <title>Treino - @yield('title')</title>
 
-
         <link rel="stylesheet" type="text/css" href="css/app.css">
+        
+        <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79235043-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-79235043-1');
+        </script>
 
     </head>
     <body>
@@ -23,7 +34,7 @@
 
         <header class="hidden-xs container-fluid nav-contact">
           <div class="container">
-            <div class="phone"><span class="glyphicon glyphicon-earphone"></span> +(000) 987-6543</div>
+            <div class="phone"><span class="glyphicon glyphicon-earphone"></span> 099 989 141</div>
             <div class="mail"><span class="glyphicon glyphicon-envelope"></span> info@treino.com.uy</div>
           </div>
         </header>

@@ -9,6 +9,9 @@
         @foreach ($curso as $key => $value)
           @if ($key == 'id')
             <div class="col-xs-6 col-lg-3 fondo-curso" id="{!! $value !!}">
+              <div class="background-curso">
+
+              </div>
           @endif
           @if ($key == 'titulo')
               <h4>{!! $value !!}</h4>

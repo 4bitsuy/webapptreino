@@ -40,8 +40,11 @@
         </a>
       @endforeach
   </div>
+@else
+  <div class="inscripciones-abiertas">
+    <h3 class="text-right">Inscripciones Abiertas <span>cursos 2018</span></h3>
+  </div>
 @endif
-
 <div id="section-escuela" class="inicio container-fluid">
   <div class="container">
     <div class="col-lg-12">
@@ -102,23 +105,23 @@
       <img src="images/logo-pie.png" alt="" class="img-responsive img-logo-pie">
       <h3>Formá parte de nuestra escuela.</h3>
       <div class="block-social">
-        <a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/treino.uy" target="_blank"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/treino.uy/" target="_blank"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/treinouy" target="_blank"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
       </div>
     </div>
-    <div class="pie-cont col-sm-4 text-left">
+    <div class="pie-cont col-sm-4 text-center">
       <h4>NUESTROS ALUMNOS</h4>
       <div class="opiniones" id="opiniones">
         @foreach ($opiniones as $opinion)
           <div class="opinion">
-            <p>"{!!array_get($opinion, 'opinion') !!}"</p>
+            <p class="text-justify">"{!!array_get($opinion, 'opinion') !!}"</p>
             <h5>{!!array_get($opinion, 'alumno') !!}</h5>
             <h6>{!!array_get($opinion, 'curso') !!}</h6>
           </div>
         @endforeach
       </div>
     </div>
-@endsection
 
-@include('contacto.form-inscripciones')
+    @include('contacto.form-inscripciones')
+@endsection

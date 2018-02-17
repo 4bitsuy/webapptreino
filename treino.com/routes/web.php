@@ -38,3 +38,9 @@ Route::get('blog/{entrada}', [
   'as'    => 'blog.nota',
   'uses'  => 'BlogController@index'
 ]);
+
+
+// extras
+Route::get('instagram',function(){
+  return redirect('/');
+});

@@ -6,43 +6,55 @@ function getInfoCursos(id){
   $('#'+id).addClass('activa');
 
   var dato = "curso="+id;
-  $.ajax({
 
-    data:     dato,
-    url:      'cursos',
-    type:     'post',
-    beforeSend: function(xhr){
-      xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
-    },
-    success:  function (data) {
+  var $f = $(this);
+  // accedo con semaforo habilitado
+  if ($f.data('locked') == undefined || !$f.data('locked')){
+    $.ajax({
 
-      /**
-    •  con r, agarro todos los caracteres raros definidos por el unicode de javascript (ej: "\u0025")
-    •  a string le asigno lo que devuelvo desde php.
-    •  luego en la llamada a fromCharCode (creo que) cambio a la codificacion definida para el js,
-      (aca entra en juego lo que instalamos en gulp, entonces ya tengo el string en utf8).
-    •  y la llamada final al encode, son para caracteres especiales como: "\", para los tildes no hace falta,
-      pero se lo meti por las deudas.
-      **/
+      data:     dato,
+      url:      'cursos',
+      type:     'post',
+      beforeSend: function(xhr){
+        xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));
+        // bloqueo semaforo
+        $f.data('locked', true);
+      },
+      success:  function (data) {
 
-      console.log(data);
-      var r = /\\u([\d\w]{4})/gi;
-      var string = data.resultado;
-      string = string.replace(r, function(match, grp){
-        return String.fromCharCode(parseInt(grp, 16));
-      });
-      string = unescape(string);
+        /**
+      •  con r, agarro todos los caracteres raros definidos por el unicode de javascript (ej: "\u0025")
+      •  a string le asigno lo que devuelvo desde php.
+      •  luego en la llamada a fromCharCode (creo que) cambio a la codificacion definida para el js,
+        (aca entra en juego lo que instalamos en gulp, entonces ya tengo el string en utf8).
+      •  y la llamada final al encode, son para caracteres especiales como: "\", para los tildes no hace falta,
+        pero se lo meti por las deudas.
+        **/
 
-      var arreglo = string.split('},');
+        console.log(data);
+        var r = /\\u([\d\w]{4})/gi;
+        var string = data.resultado;
+        string = string.replace(r, function(match, grp){
+          return String.fromCharCode(parseInt(grp, 16));
+        });
+        string = unescape(string);
 
-      if (arreglo.length > 1) {
-        html = arreglo.forEach(dibujoHtml);
-      } else {
-        console.log(arreglo[0]);
-        $('#datos-cursos').append('<h5>' + limpio(arreglo[0]) + '</h5>');
+        var arreglo = string.split('},');
+
+        if (arreglo.length > 1) {
+          html = arreglo.forEach(dibujoHtml);
+        } else {
+          console.log(arreglo[0]);
+          $('#datos-cursos').append('<h5>' + limpio(arreglo[0]) + '</h5>');
+        }
+      },
+      // desbloqueo semaforo
+      complete: function(){
+          $f.data('locked', false);
       }
-    }
-  });
+    });
+  }
+
 }
 
 function dibujoHtml(item,index){

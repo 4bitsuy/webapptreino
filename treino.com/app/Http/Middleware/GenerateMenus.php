@@ -18,7 +18,7 @@ class GenerateMenus
         \Menu::make('NavBar', function ($menu) {
             $menu->add('HOME', ['route'  => 'home', 'id' => 'home']);
 
-            $menu->add('ESCUELA', ['id' => 'escuela'])->link->href('#section-escuela');
+            $menu->add('QUIENES SOMOS', ['id' => 'escuela'])->link->href('#section-escuela');
             $menu->add('CURSOS', ['route'  => 'cursos.principal',
                                   'id' => 'cursos']);
             /*
