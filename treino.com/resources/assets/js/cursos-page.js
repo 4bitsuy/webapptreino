@@ -91,7 +91,7 @@ function primerColumna(linea){
   hora = hora.substring(0, hora.length-1)
 
   html  = '<div class="col-sm-6 column first">';
-  html += '   <h5>DATOS CLAVE</h5>';
+  html += '   <h5>DATOS CLAVES</h5>';
   html += '   <div class="col-lg-6 left">';
   html += '     <h6>COMIENZO</h6>';
   html += '     <p>' + limpio(comienzo) + '</p>';
@@ -158,7 +158,7 @@ function pie(linea){
   html += '  <p>COSTO MENSUAL: $' + limpio(costo[1].substring(0, costo[1].length-1)) + '</p>';
   html += '</div>';
   html += '<div class="col-lg-6 pieRight">';
-  html += '  <p><a href="#">DESCARGAR PROGRAMA Y + INFORMACIÓN</a></p>';
+  html += '  <p><a href="#">DESCARGAR PROGRAMA</a></p>';
   html += '</div>';
 
   return html;

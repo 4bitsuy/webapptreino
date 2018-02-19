@@ -4,7 +4,6 @@
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto+Condensed:300,700|Anton|Courgette');
-
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(#{$icon-font-path}#{$icon-font-name}.ttf) format('truetype');
@@ -16,13 +15,21 @@
   format('svg');
 }
 
+// framework
 @import "bootstrap";
+
+// slider
 @import "slick";
 @import "slick-theme";
+
+// iconos
 @import "font-awesome/font-awesome";
+
+// propios
 @import "generales";
 @import "nav";
 @import "pie";
 @import "home";
 @import "contacto";
 @import "cursos";
+@import "blog";

@@ -1,7 +1,7 @@
 @import "tira-cursos";
 
 .inscripciones-abiertas{
-  background: url($source-img+'inscripciones.jpg') left center;
+  background: url($source-img+'inscripciones.jpg') right center;
   background-size: cover;
   h3{
     color: $brand-blue;
@@ -28,7 +28,7 @@
 }
 
 div.inicio{
-  background: url($source-img+"bg-one.jpg") right center;
+  background: url($source-img+"bg-one.jpg") left center;
   background-size: cover;
   margin-top: -23px;
   padding-top: 23px;

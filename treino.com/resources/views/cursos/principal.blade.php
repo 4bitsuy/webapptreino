@@ -26,31 +26,37 @@
     </div>
     <section id="datos-cursos" class="container-fluid data-cursos">
       <div class="col-lg-12 noSel">
-        <p class="uno">NO HAS SELECCIONADO NINGUN CURSO</p>
+        <p class="uno">NO HAS SELECCIONADO NINGÚN CURSO</p>
         <p class="dos">(Seleccioná una opción de arriba)</p>
       </div>
     </section>
 
     <div class="promociones container-fluid">
-      <div class="col-sm-3">
+      <div class="col-sm-2 col-sm-offset-1">
         <h4>¡Promociones!</h4>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <p>
           <i class="fa fa-check-square-o"></i>
-          15% de bonificación pagando contado
+          Costo anual abonando Contado 20% OFF
         </p>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <p>
           <i class="fa fa-check-square-o"></i>
-          Inscripciones realizadas en Noviembre-Diciembre 2017 tienen la ultima cuota gratis
+          Residentes en el interior 20% OFF mensual (desde 100km distancia)
         </p>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <p>
           <i class="fa fa-check-square-o"></i>
-          Alumnos de Treino 15% descuento (descuentos no acumulables)
+          PROMO YO + 1 (Inscribite con un amigo y abonan con 15% OFF mensual)
+        </p>
+      </div>
+      <div class="col-sm-2">
+        <p>
+          <i class="fa fa-check-square-o"></i>
+          Alumnos TREINO 10% OFF
         </p>
       </div>
     </div>

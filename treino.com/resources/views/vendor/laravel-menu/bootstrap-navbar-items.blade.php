@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="images/logo-menu.png" class="img-responsive"></a>
+      <a class="navbar-brand" href="#"><img src="{{ URL::asset('images/logo-menu.png') }}" class="img-responsive"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

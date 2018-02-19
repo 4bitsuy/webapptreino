@@ -35,8 +35,8 @@ Route::get('blog', [
 ]);
 
 Route::get('blog/{entrada}', [
-  'as'    => 'blog.nota',
-  'uses'  => 'BlogController@index'
+  'as'    => 'blog.noticia',
+  'uses'  => 'BlogController@getEntrada'
 ]);
 
 

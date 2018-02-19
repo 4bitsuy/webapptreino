@@ -7,17 +7,17 @@
 
         <title>Treino - @yield('title')</title>
 
-        <link rel="stylesheet" type="text/css" href="css/app.css">
-        
-        <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
-        
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/app.css') }}">
+
+        <link rel="icon" href="{{ URL::asset('favicon.ico') }}" type="image/gif" sizes="16x16">
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-79235043-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-        
+
           gtag('config', 'UA-79235043-1');
         </script>
 
@@ -50,16 +50,16 @@
 
         <footer class="container-fluid">
           <div class="container">
-            <span>Desarrollado por <a href="#"> <img src="images/4bits.png" alt="" class="img-copyright"></a></span>
+            <span>Desarrollado por <a href="#"> <img src="{{ URL::asset('images/4bits.png') }}" alt="" class="img-copyright"></a></span>
           </div>
         </footer>
 
         @include('contacto.form')
 
-        <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
-        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}" charset="utf-8"></script>
+        <script src="{{ URL::asset('js/bootstrap.min.js') }}" charset="utf-8"></script>
         @include ('footer')
-        <script src="js/main.js" charset="utf-8"></script>
+        <script src="{{ URL::asset('js/main.js') }}" charset="utf-8"></script>
 
     </body>
 </html>
