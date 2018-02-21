@@ -16,7 +16,18 @@ class AltaTblNota extends Migration
         Schema::create('nota', function (Blueprint $table) {
             $table->integer('alu_id')->unsigned();
             $table->integer('modu_id')->unsigned();
-            $table->integer('nota')->unsigned();
+            $table->integer('nota');
+
+            $table->foreign('alu_id')
+              ->references('alu_nro')
+              ->on('alumno')
+              ->onDelete('cascade');
+
+            $table->foreign('modu_id')
+              ->references('modu_id')
+              ->on('modulo')
+              ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
