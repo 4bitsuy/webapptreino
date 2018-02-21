@@ -1,0 +1,18 @@
+curl -F 'client_id=73bba82c22f44c17bfa6febd30094a98' \
+-F 'client_secret=892c1f3d022d4d12a662384fbc0f0dc1 ' \
+-F 'grant_type=authorization_code' \
+-F 'redirect_uri=http://treino.code/instagram' \
+-F 'code=ccd084dbc1ee42de8ee0ab8cb48e1518' \
+https://api.instagram.com/oauth/access_token
+
+{"access_token": "3417376492.73bba82.401401d3580a4289ab31ebf7154ac9b3",
+  "user": {
+    "id": "3417376492",
+    "username": "treino.uy",
+    "profile_picture": "https://scontent.cdninstagram.com/vp/be801c9dd527b8886ccf6a5cf6a64721/5B0E7089/t51.2885-19/s150x150/13355408_1400378399978570_379093416_a.jpg",
+    "full_name": "Treino",
+    "bio": "\u270f\ufe0f\u26f9\ud83c\udffb\u200d\u2642\ufe0f Escuela de formaci\u00f3n, capacitaci\u00f3n y actualizaci\u00f3n de excelencia en entrenamiento deportivo orientado a futuros y actuales entrenadores.",
+    "website": "http://www.treino.com.uy/",
+    "is_business": true
+  }
+}

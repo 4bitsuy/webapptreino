@@ -1,8 +1,17 @@
 @import "tira-cursos";
 
 .inscripciones-abiertas{
-  background: url($source-img+'inscripciones.jpg') right center;
-  background-size: cover;
+  @include media(xxs){
+    background: url($source-img+'inscripciones_xxs.jpg') center center;
+  }
+  @include media(xs){
+    background: url($source-img+'inscripciones_xs.jpg') left center;
+  }
+  @include media(sm){
+    background: url($source-img+'inscripciones.jpg') left center;
+    background-size: cover;
+  }
+
   h3{
     color: $brand-blue;
 
@@ -91,6 +100,18 @@ div.inicio{
 }
 
 @import "staff-home";
+
+.instagram-profile{
+  padding: 0 30px;
+  .slick-slide{
+    height: auto!important;
+    img{
+      margin: 0 auto!important;
+    }
+  }
+}
+
+
 .opiniones{
   .slick-arrow{
     display: none!important;

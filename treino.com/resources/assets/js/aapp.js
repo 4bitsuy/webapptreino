@@ -48,7 +48,13 @@ $(document).ready(function() {
         slidesToShow: 1,
         slidesToScroll: 1
     });
-
+  $("#instagram-feed").slick({
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+  });
   /** webPage Cursos **/
   $('div#cursos').on('click', 'div.fondo-curso', function(){
     var idCursos = $(this).attr('id');

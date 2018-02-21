@@ -181,7 +181,7 @@ return [
         Corcel\Laravel\CorcelServiceProvider::class, // conexion con wordpress
         Lavary\Menu\ServiceProvider::class, // para crear menus.
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class, // para levantar datos de javascript.
-        Mbarwick83\Instagram\InstagramServiceProvider::class
+        
 
     ],
 
