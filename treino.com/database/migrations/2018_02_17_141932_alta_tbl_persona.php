@@ -14,7 +14,8 @@ class AltaTblPersona extends Migration
     public function up()
     {
         Schema::create('persona', function (Blueprint $table) {
-            $table->integer('per_ci')->primary();
+            $table->increments('per_id');
+            $table->integer('per_id')->primary();
             $table->string('per_pri_nombre');
             $table->string('per_seg_nombre')->nullable();
             $table->string('per_pri_apellido');

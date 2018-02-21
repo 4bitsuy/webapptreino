@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AltaTblRolUsu extends Migration
+class AltaTblRelrolusu extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AltaTblRolUsu extends Migration
     public function up()
     {
         Schema::create('relrolusu', function (Blueprint $table) {
-          $table->increments('id');
+          $table->increments('rel_rol_usu_id');
           $table->integer('id_rol')->unsigned();
           $table->integer('id_usu')->unsigned();
 
@@ -27,8 +27,7 @@ class AltaTblRolUsu extends Migration
             ->references('id')
             ->on('usuario')
             ->onDelete('cascade');
-
-          $table->timestamps();
+            $table->timestamps();
         });
     }
 

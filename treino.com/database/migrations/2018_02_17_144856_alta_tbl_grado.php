@@ -14,6 +14,7 @@ class AltaTblGrado extends Migration
     public function up()
     {
         Schema::create('grado', function (Blueprint $table) {
+            $table->increments('gra_id');
             $table->integer('gra_nro')->primary();
             $table->date('gra_fch_ini')->nullable();
             $table->date('gra_fch_fin')->nullable();
