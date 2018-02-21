@@ -15,11 +15,11 @@ class AltaTblTelefono extends Migration
     {
         Schema::create('telefono', function (Blueprint $table) {
           $table->increments('tel_id');
-          $table->integer('tel_per_ci')->unsigned();
+          $table->integer('tel_per_id')->unsigned();
           $table->integer('tel_nro');
 
-          $table->foreign('tel_per_ci')
-            ->references('per_ci')
+          $table->foreign('tel_per_id')
+            ->references('per_id')
             ->on('persona')
             ->onDelete('cascade');
 

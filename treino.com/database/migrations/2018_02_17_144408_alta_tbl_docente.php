@@ -15,10 +15,10 @@ class AltaTblDocente extends Migration
     {
         Schema::create('docente', function (Blueprint $table) {
           $table->increments('doc_nro');
-          $table->integer('doc_per_ci')->unsigned();
+          $table->integer('doc_per_id')->unsigned();
 
-          $table->foreign('doc_per_ci')
-            ->references('per_ci')
+          $table->foreign('doc_per_id')
+            ->references('per_id')
             ->on('persona')
             ->onDelete('cascade');
 

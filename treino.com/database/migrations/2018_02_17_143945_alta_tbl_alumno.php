@@ -15,10 +15,10 @@ class AltaTblAlumno extends Migration
     {
         Schema::create('alumno', function (Blueprint $table) {
             $table->increments('alu_nro');
-            $table->integer('alu_per_ci')->unsigned();
+            $table->integer('alu_per_id')->unsigned();
 
-            $table->foreign('alu_per_ci')
-              ->references('per_ci')
+            $table->foreign('alu_per_id')
+              ->references('per_id')
               ->on('persona')
               ->onDelete('cascade');
 
