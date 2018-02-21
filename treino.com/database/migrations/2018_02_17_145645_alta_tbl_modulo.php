@@ -14,9 +14,9 @@ class AltaTblModulo extends Migration
     public function up()
     {
         Schema::create('modulo', function (Blueprint $table) {
-            $table->increments('modu_id');
-            $table->increments('modu_nombre');
-            $table->increments('modu_descripcion');
+            $table->increments('modu_id')->primary();
+            $table->string('modu_nombre');
+            $table->string('modu_descripcion')->nullable();
             $table->timestamps();
         });
     }

@@ -14,14 +14,14 @@ class AltaTblPersona extends Migration
     public function up()
     {
         Schema::create('persona', function (Blueprint $table) {
-            $table->integer('per_ci');
+            $table->integer('per_ci')->primary();
             $table->string('per_pri_nombre');
-            $table->string('per_seg_nombre');
+            $table->string('per_seg_nombre')->nullable();
             $table->string('per_pri_apellido');
-            $table->string('per_seg_apellido');
-            $table->date('per_fechanac');
-            $table->string('per_email');
-            $table->string('per_usuingreso');
+            $table->string('per_seg_apellido')->nullable();
+            $table->date('per_fechanac')->nullable();
+            $table->string('per_email')->nullable()->unique();
+            $table->string('per_usuingreso')->nullable();
             $table->timestamps();
         });
     }

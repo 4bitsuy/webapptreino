@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AltaTblAlumno extends Migration
+class AltaTblNota extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class AltaTblAlumno extends Migration
      */
     public function up()
     {
-        Schema::create('alumno', function (Blueprint $table) {
-            $table->increments('alu_nro')->primary();
-            $table->integer('alu_per_ci')->unsigned();
-
-            $table->foreign('alu_per_ci')
-              ->references('per_ci')
-              ->on('persona')
-              ->onDelete('cascade');
-
+        Schema::create('nota', function (Blueprint $table) {
+            $table->integer('alu_id')->unsigned();
+            $table->integer('modu_id')->unsigned();
+            $table->integer('nota')->unsigned();
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class AltaTblAlumno extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alumno');
+        Schema::dropIfExists('nota');
     }
 }

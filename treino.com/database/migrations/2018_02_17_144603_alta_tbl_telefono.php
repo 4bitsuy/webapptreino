@@ -14,7 +14,7 @@ class AltaTblTelefono extends Migration
     public function up()
     {
         Schema::create('telefono', function (Blueprint $table) {
-          $table->increments('tel_id');
+          $table->increments('tel_id')->primary();
           $table->integer('tel_per_ci')->unsigned();
           $table->integer('tel_nro');
 
