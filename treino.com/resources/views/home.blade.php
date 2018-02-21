@@ -1,4 +1,4 @@
-
+<?php $instas = json_decode($instagram); ?>
 @extends('layouts.app')
 
 @section('title', 'Inicio')
@@ -98,8 +98,21 @@
 
 
 @section('pie')
-    <div class="pie-cont col-sm-4 text-left">
-      <h4>ULTIMOS POST</h4>
+    <div class="instagram-profile col-sm-4 text-left ">
+      <h4><img src="{{ URL::asset('images/instagram-logo.png') }}" alt="Instagram" class="img-responsive" style="max-width: 200px;"></h4>
+      <div class="" id="instagram-feed">
+        @foreach ($instas as $insta)
+          <div class="insta-post">
+            <img src="{{$insta->images->low_resolution->url}}" alt="" class="img-responsive">
+            {{-- dd($insta) --}}
+            <i class="fa fa-heart" aria-hidden="true"></i> <span>{{ $insta->likes->count }}</span>
+            <i class="fa fa-comment" aria-hidden="true"></i> <span>{{ $insta->comments->count }}</span>
+            <div class="insta-info-post">
+              <strong> <a href="https://www.instagram.com/treino.uy/" target="_blank">{{ $insta->user->username }} </a></strong><span>{{ $insta->caption->text }}</span>
+            </div>
+          </div>
+        @endforeach
+      </div>
     </div>
     <div class="pie-cont col-sm-4 text-center">
       <img src="images/logo-pie.png" alt="" class="img-responsive img-logo-pie">

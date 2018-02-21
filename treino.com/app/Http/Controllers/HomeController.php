@@ -9,6 +9,7 @@ use App\Models\linkWP\Terms;
 use App\Models\linkWP\Taxonomy;
 use App\Models\linkWP\RelTaxPosts;
 use Corcel\Model\Page;
+use Vinkla\Instagram\Instagram;
 
 class HomeController extends Controller
 {
@@ -31,14 +32,17 @@ class HomeController extends Controller
         $cursos = $this->getCursos();
 
         $opiniones = $this->getOpiniones();
+
+        $instagram = $this->getInstagramFeed();
+        
         return view('home')->with('homeData', $homeData)
                            ->with('staffData', $staffData)
                            //->with('entradas', $entradas)
                            ->with('tieneCursosCortos',$hasCursosCortos)
                            ->with('cursosCortos', $cursosCortos)
                            ->with('cursos', $cursos)
-                           ->with('opiniones', $opiniones);
-
+                           ->with('opiniones', $opiniones)
+                           ->with('instagram',$instagram);
     }
 
     private function getInfoInicio($posts){
@@ -195,5 +199,13 @@ class HomeController extends Controller
       }
 
       return $opiniones;
+    }
+
+    private function getInstagramFeed(){
+
+        $response = new Instagram('3417376492.73bba82.401401d3580a4289ab31ebf7154ac9b3');
+        $instagrams = json_encode($response->get());
+
+        return $instagrams;
     }
 }

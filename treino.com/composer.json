@@ -12,7 +12,10 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "lavary/laravel-menu": "^1.7",
-        "mbarwick83/instagram": "^1.11"
+        "mbarwick83/instagram": "^1.11",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message": "^1.6",
+        "vinkla/instagram": "^8.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

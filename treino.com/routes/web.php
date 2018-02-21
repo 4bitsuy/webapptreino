@@ -41,6 +41,7 @@ Route::get('blog/{entrada}', [
 
 
 // extras
-Route::get('instagram',function(){
-  return redirect('/');
-});
+Route::get('instagram', [
+  'as'    => 'home',
+  'uses'  => 'HomeController@index'
+]);
