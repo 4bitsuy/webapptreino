@@ -871,17 +871,17 @@
     },
     {
         "name": "jgrossi/corcel",
-        "version": "v2.5.7",
-        "version_normalized": "2.5.7.0",
+        "version": "v2.5.8",
+        "version_normalized": "2.5.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/corcel/corcel.git",
-            "reference": "e183ebb5e2bfc4d0f47620056e6023b28a5bcde7"
+            "reference": "73bac867119a03526f7f64ff469fa5188c5df291"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/corcel/corcel/zipball/e183ebb5e2bfc4d0f47620056e6023b28a5bcde7",
-            "reference": "e183ebb5e2bfc4d0f47620056e6023b28a5bcde7",
+            "url": "https://api.github.com/repos/corcel/corcel/zipball/73bac867119a03526f7f64ff469fa5188c5df291",
+            "reference": "73bac867119a03526f7f64ff469fa5188c5df291",
             "shasum": ""
         },
         "require": {
@@ -902,7 +902,7 @@
             "orchestra/testbench": "3.5.*",
             "phpunit/phpunit": "~6.0"
         },
-        "time": "2018-02-09T18:32:38+00:00",
+        "time": "2018-02-20T19:57:43+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -2050,17 +2050,17 @@
     },
     {
         "name": "phpspec/prophecy",
-        "version": "1.7.4",
-        "version_normalized": "1.7.4.0",
+        "version": "1.7.5",
+        "version_normalized": "1.7.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpspec/prophecy.git",
-            "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be"
+            "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
-            "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
+            "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+            "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
             "shasum": ""
         },
         "require": {
@@ -2074,7 +2074,7 @@
             "phpspec/phpspec": "^2.5|^3.2",
             "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5"
         },
-        "time": "2018-02-11T18:49:29+00:00",
+        "time": "2018-02-19T10:16:54+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
