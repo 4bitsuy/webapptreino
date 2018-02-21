@@ -14,7 +14,7 @@ class AltaTblRol extends Migration
     public function up()
     {
         Schema::create('rol', function (Blueprint $table) {
-            $table->increments('id')->primary();
+            $table->increments('id');
             $table->string('descripcion')->nullable();
             $table->string('nombre');
             $table->timestamps();

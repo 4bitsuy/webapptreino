@@ -14,7 +14,7 @@ class AltaTblRol extends Migration
     public function up()
     {
         Schema::create('relrolusu', function (Blueprint $table) {
-          $table->increments('id')->primary();
+          $table->increments('id');
           $table->integer('id_rol')->unsigned();
           $table->integer('id_usu')->unsigned();
 

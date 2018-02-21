@@ -14,7 +14,7 @@ class AltaTblPersona extends Migration
     public function up()
     {
         Schema::create('docente', function (Blueprint $table) {
-          $table->increments('doc_nro')->primary();
+          $table->increments('doc_nro');
           $table->integer('doc_per_ci')->unsigned();
 
           $table->foreign('doc_per_ci')

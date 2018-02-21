@@ -14,7 +14,7 @@ class AltaTblAlumno extends Migration
     public function up()
     {
         Schema::create('alumno', function (Blueprint $table) {
-            $table->increments('alu_nro')->primary();
+            $table->increments('alu_nro');
             $table->integer('alu_per_ci')->unsigned();
 
             $table->foreign('alu_per_ci')
