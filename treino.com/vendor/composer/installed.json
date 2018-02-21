@@ -925,17 +925,17 @@
     },
     {
         "name": "jgrossi/corcel",
-        "version": "v2.5.7",
-        "version_normalized": "2.5.7.0",
+        "version": "v2.5.8",
+        "version_normalized": "2.5.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/corcel/corcel.git",
-            "reference": "e183ebb5e2bfc4d0f47620056e6023b28a5bcde7"
+            "reference": "73bac867119a03526f7f64ff469fa5188c5df291"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/corcel/corcel/zipball/e183ebb5e2bfc4d0f47620056e6023b28a5bcde7",
-            "reference": "e183ebb5e2bfc4d0f47620056e6023b28a5bcde7",
+            "url": "https://api.github.com/repos/corcel/corcel/zipball/73bac867119a03526f7f64ff469fa5188c5df291",
+            "reference": "73bac867119a03526f7f64ff469fa5188c5df291",
             "shasum": ""
         },
         "require": {
@@ -956,7 +956,7 @@
             "orchestra/testbench": "3.5.*",
             "phpunit/phpunit": "~6.0"
         },
-        "time": "2018-02-09T18:32:38+00:00",
+        "time": "2018-02-20T19:57:43+00:00",
         "type": "library",
         "extra": {
             "laravel": {
