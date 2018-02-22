@@ -21,8 +21,6 @@ class AltaTblGrado extends Migration
             $table->string('gra_estado');
             $table->timestamps();
 
-            $table->primary(array('gra_id', 'gra_nro'));
-
         });
     }
 

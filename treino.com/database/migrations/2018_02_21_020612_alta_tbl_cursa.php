@@ -20,7 +20,7 @@ class AltaTblCursa extends Migration
             $table->boolean('cur_estado');
 
             $table->foreign('gra_id')
-              ->references('gra_nro')
+              ->references('gra_id')
               ->on('grado')
               ->onDelete('cascade');
 

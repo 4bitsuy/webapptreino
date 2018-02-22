@@ -19,7 +19,7 @@ class AltaTblRelgramod extends Migration
             $table->integer('lista')->nullable();
 
             $table->foreign('gra_id')
-              ->references('gra_nro')
+              ->references('gra_id')
               ->on('grado')
               ->onDelete('cascade');
 

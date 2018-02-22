@@ -21,7 +21,7 @@ class AltaTblLista extends Migration
             $table->boolean('asistencia');
 
             $table->foreign('gra_id')
-              ->references('gra_nro')
+              ->references('gra_id')
               ->on('grado')
               ->onDelete('cascade');
 
