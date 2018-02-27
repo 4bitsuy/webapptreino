@@ -6,34 +6,68 @@ var ancho = $(window).width();
 
 $(document).ready(function() {
   /** Generales **/
+  var idNombre = 'nombre',
+      idCorreo = 'email',
+      idTelefono = 'telefono',
+      valNombre = 'Nombre',
+      valCorreo = 'Correo Electrónico',
+      valTelefono = 'Teléfono';
+
   $("input").focus(function() {
-    this.value = "";
+    switch (this.id) {
+      case idNombre:
+        if (this.value === valNombre){
+          this.value = "";
+        }
+        break;
+      case idCorreo:
+        if (this.value === valCorreo){
+          this.value = "";
+        }
+        break;
+      case idTelefono:
+        if (this.value === valTelefono){
+          this.value = "";
+        }
+        break;
+
+    }
+
+
   });
   $('input').blur( function() {
+
     switch (this.id) {
-      case "nombre":
-        this.value = "Nombre";
+
+      case idNombre:
+        if (this.value === ""){
+          this.value = valNombre;
+        }
         break;
-      case "email":
-        this.value = "Correo Electrónico";
+      case idCorreo:
+        if (this.value === ""){
+          this.value = valCorreo;
+        }
         break;
-      case "telefono":
-        this.value = "Teléfono";
+      case idTelefono:
+        if (this.value === ""){
+          this.value = valTelefono;
+        }
         break;
-      default:
-        this.value = this.id;
     }
+
   });
+
   $("textarea").focus(function() {
     this.value = "";
   });
   $('textarea').blur( function() {
     switch (this.id) {
       case "mensaje":
-        this.value = "Tu Mensaje";
+        if (this.value = ""){
+          this.value = "Tu Mensaje";
+        }
         break;
-      default:
-        this.value = this.id;
     }
   });
 
