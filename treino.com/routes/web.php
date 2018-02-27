@@ -50,6 +50,10 @@ Route::get('alumno', [
   'uses'  => 'AlumnoController@index'
 ]);
 
+Route::get('persona', [
+  'as'    => 'persona.principal',
+  'uses'  => 'PersonaController@index'
+]);
 
 
 // extras
