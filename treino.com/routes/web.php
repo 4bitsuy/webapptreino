@@ -11,30 +11,29 @@
 |
 */
 
-
+// Home
 Route::get('/', [
   'as'    => 'home',
   'uses'  => 'HomeController@index'
 ]);
-Route::get('escuela', [
-  'as'    => 'escuela.principal',
-  'uses'  => 'EscuelaController@index'
-]);
+
+// Cursos
 Route::get('cursos', [
   'as'    => 'cursos.principal',
   'uses'  => 'CursosController@index'
 ]);
 Route::post('cursos', 'CursosController@getInfoCurso');
 
+// Formularios
 Route::post('contacto', 'ContactoController@enviarCorreo');
 Route::post('inscripcion', 'ContactoController@enviarCorreoInscripcion');
 Route::post('contacto-curso', 'ContactoController@enviarCorreoCurso');
 
+// Blog
 Route::get('blog', [
   'as'    => 'blog.principal',
   'uses'  => 'BlogController@index'
 ]);
-
 Route::get('blog/{entrada}', [
   'as'    => 'blog.noticia',
   'uses'  => 'BlogController@getEntrada'
@@ -58,3 +57,6 @@ Route::get('instagram', [
   'as'    => 'home',
   'uses'  => 'HomeController@index'
 ]);
+// Plataforma
+Auth::routes();
+Route::get('campus', 'Campus\CampusController@index')->name('campus.home');
