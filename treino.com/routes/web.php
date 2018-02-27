@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', [
   'as'    => 'home',
   'uses'  => 'HomeController@index'
@@ -38,6 +39,18 @@ Route::get('blog/{entrada}', [
   'as'    => 'blog.noticia',
   'uses'  => 'BlogController@getEntrada'
 ]);
+
+
+Route::get('usuario', [
+  'as'    => 'usuario.principal',
+  'uses'  => 'UsuarioController@index'
+]);
+
+Route::get('alumno', [
+  'as'    => 'alumno.principal',
+  'uses'  => 'AlumnoController@index'
+]);
+
 
 
 // extras
