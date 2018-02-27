@@ -11,7 +11,6 @@ class AlumnoController extends Controller{
     $alumno = new Alumno;
     $persona = Persona::find(1/* Aca va variable seguro */);
 
-    $alumno->save();
     $alumno = $persona->personas()->save($alumno);
 
     $alumnos = Alumno::get();
