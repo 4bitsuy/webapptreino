@@ -7,12 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    // ACA LE DIGO QUE LA PUTA TABLA SE LLAMA USUARIO!
-    // y por que la clas se llama user?
-    // MMMMMMMMMM PUEEEEEEEEEEEDE SEEEEEEEEEEEER...
-    // jajjaja  de todas formas esta bien el prot
-    // no igual ahora que pienso no deberia importar, igual pruebo
-    //protected $table = 'usuario';
 
     use Notifiable;
 
@@ -25,7 +19,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name', 'email', 'clave', 'documento'
+        'name', 'email', 'password', 'documento'
     ];
 
     /**
@@ -36,4 +30,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function RelRolUsu(){
+      return $this->belongsTo();
+    }
 }
