@@ -8,9 +8,11 @@ class Persona extends Model
 {
     protected $table = 'persona';
 
+    protected $primaryKey = 'per_id';
+
     public function alumno()
     {
-       return $this->hasOne('App\Alumno');
+       return $this->belongsTo('App\Alumno','alu_per_id');
      }
 
 

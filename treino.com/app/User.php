@@ -32,6 +32,6 @@ class User extends Authenticatable
     ];
 
     public function RelRolUsu(){
-      return $this->belongsTo();
+      return $this->belongsTo(App\RelRolUsu);
     }
 }
