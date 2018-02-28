@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Campus;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CampusController extends Controller
@@ -22,8 +23,15 @@ class CampusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('campus.home');
+      $id = $this->getAuthUserId();
+
+      echo $id;
+      //return view('campus.home');
+    }
+
+    private function getAuthUserId(){
+      return Auth::id();
     }
 }
