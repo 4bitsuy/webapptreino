@@ -431,8 +431,10 @@ class ComposerStaticInit3d27795cad8d5be612b5aef336e69827
     );
 
     public static $classMap = array (
+        'App\\Alumno' => __DIR__ . '/../..' . '/app/Alumno.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AlumnoController' => __DIR__ . '/../..' . '/app/Http/Controllers/AlumnoController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -444,6 +446,8 @@ class ComposerStaticInit3d27795cad8d5be612b5aef336e69827
         'App\\Http\\Controllers\\CursosController' => __DIR__ . '/../..' . '/app/Http/Controllers/CursosController.php',
         'App\\Http\\Controllers\\EscuelaController' => __DIR__ . '/../..' . '/app/Http/Controllers/EscuelaController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\PersonaController' => __DIR__ . '/../..' . '/app/Http/Controllers/PersonaController.php',
+        'App\\Http\\Controllers\\UsuarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsuarioController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\GenerateMenus' => __DIR__ . '/../..' . '/app/Http/Middleware/GenerateMenus.php',
@@ -455,6 +459,7 @@ class ComposerStaticInit3d27795cad8d5be612b5aef336e69827
         'App\\Models\\linkWP\\RelTaxPosts' => __DIR__ . '/../..' . '/app/Models/linkWP/RelTaxPosts.php',
         'App\\Models\\linkWP\\Taxonomy' => __DIR__ . '/../..' . '/app/Models/linkWP/Taxonomy.php',
         'App\\Models\\linkWP\\Terms' => __DIR__ . '/../..' . '/app/Models/linkWP/Terms.php',
+        'App\\Persona' => __DIR__ . '/../..' . '/app/Persona.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

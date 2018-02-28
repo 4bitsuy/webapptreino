@@ -54,11 +54,10 @@
         </footer>
 
         @include('contacto.form')
-
-        <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}" charset="utf-8"></script>
-        <script src="{{ URL::asset('js/bootstrap.min.js') }}" charset="utf-8"></script>
-        @include ('footer')
         <script src="{{ URL::asset('js/main.js') }}" charset="utf-8"></script>
+
+        @include ('footer')
+
 
     </body>
 </html>
