@@ -160,7 +160,16 @@ class HomeController extends Controller
     }
     private function getInstagramFeed(){
         $response = new Instagram('3417376492.73bba82.401401d3580a4289ab31ebf7154ac9b3');
-        $instagrams = json_encode($response->get());
+
+
+        $instas = $response->get();
+        $instagrams = [];
+
+        for ($i=0; $i < 5; $i++) {
+          array_push($instagrams,$instas[$i]);
+        }
+        $instagrams = json_encode($instagrams);
+
         return $instagrams;
     }
 }

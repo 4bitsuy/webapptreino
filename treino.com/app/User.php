@@ -31,7 +31,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function RelRolUsu(){
-      return $this->belongsTo(App\RelRolUsu);
+    public function relRolUsu(){
+      return $this->hasOne('App\RelRolUsu', 'id_usu', 'id');
     }
 }
