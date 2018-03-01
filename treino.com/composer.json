@@ -15,7 +15,8 @@
         "mbarwick83/instagram": "^1.11",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/message": "^1.6",
-        "vinkla/instagram": "^8.0"
+        "vinkla/instagram": "^8.0",
+        "doctrine/dbal": "~2.3"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
