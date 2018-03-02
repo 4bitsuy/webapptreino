@@ -14,6 +14,7 @@ class AltaTblRelrolobjeto extends Migration
     public function up()
     {
         Schema::create('relrolobjeto', function (Blueprint $table) {
+            $table->increments('relrolobj_id');
             $table->integer('rol_id')->unsigned();
             $table->string('obj_panel_id');
             $table->string('obj_evento_id');
@@ -34,7 +35,6 @@ class AltaTblRelrolobjeto extends Migration
               ->on('objetos')
               ->onDelete('cascade');
 
-            $table->primary(array('rol_id','obj_panel_id','obj_evento_id'));
         });
     }
 

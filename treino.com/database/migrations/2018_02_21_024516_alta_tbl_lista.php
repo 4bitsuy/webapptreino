@@ -14,8 +14,9 @@ class AltaTblLista extends Migration
     public function up()
     {
         Schema::create('lista', function (Blueprint $table) {
+            $table->increments('lis_id');
             $table->integer('alu_id')->unsigned();
-            $table->date('lisfecha')->primary();
+            $table->date('lisfecha')->unique();
             $table->integer('modu_id')->unsigned();
             $table->integer('gra_id')->unsigned();
             $table->boolean('asistencia');

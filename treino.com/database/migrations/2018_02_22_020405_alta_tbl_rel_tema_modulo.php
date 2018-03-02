@@ -14,6 +14,7 @@ class AltaTblRelTemaModulo extends Migration
     public function up()
     {
         Schema::create('reltemamodulo', function (Blueprint $table) {
+            $table->increments('reltemamod_id');
             $table->integer('tema_id')->unsigned();
             $table->integer('modu_id')->unsigned();
             $table->timestamps();
@@ -27,8 +28,6 @@ class AltaTblRelTemaModulo extends Migration
               ->references('tema_id')
               ->on('tema')
               ->onDelete('cascade');
-
-            $table->primary(['tema_id','modu_id']);
         });
     }
 

@@ -1412,7 +1412,6 @@
     },
     {
         "name": "laravel/framework",
-<<<<<<< HEAD
         "version": "v5.5.36",
         "version_normalized": "5.5.36.0",
         "source": {
@@ -1424,19 +1423,6 @@
             "type": "zip",
             "url": "https://api.github.com/repos/laravel/framework/zipball/9283cea4a5727aaf1def60a8fa820e49df2cf874",
             "reference": "9283cea4a5727aaf1def60a8fa820e49df2cf874",
-=======
-        "version": "v5.5.35",
-        "version_normalized": "5.5.35.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/laravel/framework.git",
-            "reference": "b0e15382ecf51a082ef8b2ae0d26f62972f6c3ce"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/b0e15382ecf51a082ef8b2ae0d26f62972f6c3ce",
-            "reference": "b0e15382ecf51a082ef8b2ae0d26f62972f6c3ce",
->>>>>>> 7a4b2e12b36769bcb9e8151ec2dfc8fe5fdbf64f
             "shasum": ""
         },
         "require": {
@@ -1526,11 +1512,7 @@
             "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (~3.3).",
             "symfony/psr-http-message-bridge": "Required to psr7 bridging features (~1.0)."
         },
-<<<<<<< HEAD
         "time": "2018-03-01T13:59:00+00:00",
-=======
-        "time": "2018-02-22T19:56:29+00:00",
->>>>>>> 7a4b2e12b36769bcb9e8151ec2dfc8fe5fdbf64f
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -5116,7 +5098,6 @@
     },
     {
         "name": "symfony/translation",
-<<<<<<< HEAD
         "version": "v4.0.5",
         "version_normalized": "4.0.5.0",
         "source": {
@@ -5128,19 +5109,6 @@
             "type": "zip",
             "url": "https://api.github.com/repos/symfony/translation/zipball/e20a9b7f9f62cb33a11638b345c248e7d510c938",
             "reference": "e20a9b7f9f62cb33a11638b345c248e7d510c938",
-=======
-        "version": "v4.0.4",
-        "version_normalized": "4.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/translation.git",
-            "reference": "a9c4e4cc56f7eff0960c4f6c157da8f6b13211fc"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/translation/zipball/a9c4e4cc56f7eff0960c4f6c157da8f6b13211fc",
-            "reference": "a9c4e4cc56f7eff0960c4f6c157da8f6b13211fc",
->>>>>>> 7a4b2e12b36769bcb9e8151ec2dfc8fe5fdbf64f
             "shasum": ""
         },
         "require": {
@@ -5165,11 +5133,7 @@
             "symfony/config": "",
             "symfony/yaml": ""
         },
-<<<<<<< HEAD
         "time": "2018-02-22T10:50:29+00:00",
-=======
-        "time": "2018-01-18T22:19:33+00:00",
->>>>>>> 7a4b2e12b36769bcb9e8151ec2dfc8fe5fdbf64f
         "type": "library",
         "extra": {
             "branch-alias": {

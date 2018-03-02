@@ -17,9 +17,7 @@
 
     {!! Session::get('usuName') !!}
 <div id="app" class="campus">
-  @guest
-    
-  @else
+  @auth
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -73,8 +71,8 @@
         </div>
       </nav>
     </div>
-    @yield('content')
-  @endguest
+  @endauth
+  @yield('content')
 </div>
 
     <!-- Scripts -->

@@ -14,6 +14,7 @@ class AltaTblNota extends Migration
     public function up()
     {
         Schema::create('nota', function (Blueprint $table) {
+            $table->increments('not_id');
             $table->integer('alu_id')->unsigned();
             $table->integer('modu_id')->unsigned();
             $table->integer('nota');

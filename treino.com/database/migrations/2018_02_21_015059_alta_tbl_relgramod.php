@@ -14,6 +14,7 @@ class AltaTblRelgramod extends Migration
     public function up()
     {
         Schema::create('relgramod', function (Blueprint $table) {
+            $table->increments('relgramod_id');
             $table->integer('gra_id')->unsigned();
             $table->integer('modu_id')->unsigned();
             $table->integer('lista')->nullable();
@@ -29,6 +30,7 @@ class AltaTblRelgramod extends Migration
               ->onDelete('cascade');
 
             $table->timestamps();
+
         });
     }
 
