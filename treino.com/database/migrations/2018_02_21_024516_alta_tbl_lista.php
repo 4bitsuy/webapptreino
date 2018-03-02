@@ -35,7 +35,7 @@ class AltaTblLista extends Migration
               ->on('alumno')
               ->onDelete('cascade');
 
-            $table->unique(['lisfecha','modu_id','gra_id'])
+            $table->unique(['lisfecha','modu_id','gra_id']);
 
             $table->timestamps();
         });
