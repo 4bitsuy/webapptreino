@@ -16,4 +16,8 @@ class Modulo extends Model
   public function lista(){
     return $this->hasOne('App\Lista','modu_id','modu_id');
   }
+
+  public function nota(){
+    return $this->hasOne('App\Nota','modu_id','modu_id');
+  }
 }
