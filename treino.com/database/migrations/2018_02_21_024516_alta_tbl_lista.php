@@ -16,7 +16,7 @@ class AltaTblLista extends Migration
         Schema::create('lista', function (Blueprint $table) {
             $table->increments('lis_id');
             $table->integer('alu_id')->unsigned();
-            $table->date('lisfecha')->unique();
+            $table->date('lisfecha');
             $table->integer('modu_id')->unsigned();
             $table->integer('gra_id')->unsigned();
             $table->boolean('asistencia');
@@ -35,6 +35,8 @@ class AltaTblLista extends Migration
               ->references('alu_nro')
               ->on('alumno')
               ->onDelete('cascade');
+
+            $table->unique(['lisfecha','modu_id','gra_id']);
 
             $table->timestamps();
         });

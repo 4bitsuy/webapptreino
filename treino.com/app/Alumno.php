@@ -13,4 +13,11 @@ class Alumno extends Model
       return $this->belongsTo('App\Persona','per_id');
     }
 
+    public function cursa(){
+      return $this->hasMany('App\Cursa','alu_id','alu_nro');
+    }
+
+    public function lista(){
+      return $this->hasMany('App\Lista','alu_id','alu_nro');
+    }
 }

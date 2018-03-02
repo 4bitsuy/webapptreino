@@ -8,6 +8,4 @@ class RelGraMod extends Model
 {
     protected $table = 'relgramod';
     protected $primaryKey = '';
-
-
 }
