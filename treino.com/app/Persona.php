@@ -13,5 +13,12 @@ class Persona extends Model
        return $this->hasOne('App\Alumno','alu_per_id','per_id');
      }
 
+    public function docente(){
+      return $this->hasOne('App\Docente','doc_per_id','per_id');
+    }
+
+    public function telefono(){
+      return $this->hasOne('App\Telefono','tel_per_id','per_id');
+    }
 
 }
