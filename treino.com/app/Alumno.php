@@ -20,4 +20,8 @@ class Alumno extends Model
     public function lista(){
       return $this->hasMany('App\Lista','alu_id','alu_nro');
     }
+
+    public function nota(){
+      return $this->hasMany('App\Nota','alu_id','alu_nro');
+    }
 }
