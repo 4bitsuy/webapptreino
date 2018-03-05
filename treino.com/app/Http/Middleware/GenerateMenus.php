@@ -35,8 +35,6 @@ class GenerateMenus
 
         \Menu::make('campusSidebar', function ($menu) {
             $menu->add('Mi Perfil', ['route' => 'perfil']);
-            $menu->perfil->add('Datos generales', 'datos');
-            $menu->perfil->add('Cambiar contraseña', 'cambiar-contraseña');
 
         });
 

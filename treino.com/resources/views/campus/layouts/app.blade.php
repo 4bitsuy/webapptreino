@@ -18,6 +18,7 @@
     {!! Session::get('usuName') !!}
 <div id="app" class="campus">
   @auth
+    {!! $campusSidebar->roots() !!}
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
