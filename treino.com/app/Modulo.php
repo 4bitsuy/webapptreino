@@ -20,4 +20,8 @@ class Modulo extends Model
   public function nota(){
     return $this->hasOne('App\Nota','modu_id','modu_id');
   }
+
+  public function relTemaModulo(){
+    return $this->hasOne('App\RelTemaModulo', 'modu_id', 'modu_id');
+  }
 }

@@ -18,7 +18,7 @@ class Persona extends Model
     }
 
     public function telefono(){
-      return $this->hasOne('App\Telefono','tel_per_id','per_id');
+      return $this->hasMany('App\Telefono','tel_per_id','per_id');
     }
 
 }
