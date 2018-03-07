@@ -57,6 +57,7 @@ class CampusController extends Controller
     private function setSessionUser($usuario, $rol){
       session(['usuId' => $usuario->id]);
       session(['usuMail' => $usuario->email]);
+      session(['usuDocu' => $usuario->documento]);
       session(['usuName' => $usuario->name]);
       session(['usuRolId' => $rol->id]);
       session(['usuRol' => $rol->nombre]);
