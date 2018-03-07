@@ -31,6 +31,7 @@ class CampusController extends Controller
       $usuario = $this->getAuthUserInfo();
       $rol = $this->getRolFromUser($this->getAuthUserId());
 
+      /*
       if ($rol){
         echo 'rol: '.json_encode($rol);
         echo '<br>Usuario: '.json_encode($usuario);
@@ -38,6 +39,10 @@ class CampusController extends Controller
       } else{
         echo 'no tiene rol';
       }
+      */
+
+      $this->setSessionUser($usuario, $rol);
+
       return view('campus.home');
     }
 
@@ -55,7 +60,16 @@ class CampusController extends Controller
       $relRolUsu = $usuario->relRolUsu;
 
       $rol = $relRolUsu->rol;
-      
+
       return $rol;
+    }
+
+    private function setSessionUser($usuario, $rol){
+      session(['usuId' => $usuario->id]);
+      session(['usuMail' => $usuario->email]);
+      session(['usuDocu' => $usuario->documento]);
+      session(['usuName' => $usuario->name]);
+      session(['usuRolId' => $rol->id]);
+      session(['usuRol' => $rol->nombre]);
     }
 }

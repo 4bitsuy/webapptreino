@@ -14,6 +14,7 @@ class AltaTblCursa extends Migration
     public function up()
     {
         Schema::create('cursa', function (Blueprint $table) {
+            $table->increments('cur_id');
             $table->integer('gra_id')->unsigned();
             $table->integer('modu_id')->unsigned();
             $table->integer('alu_id')->unsigned();

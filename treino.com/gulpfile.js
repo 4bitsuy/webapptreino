@@ -63,7 +63,7 @@ gulp.task('js', function () {
     gulp.src(javascript.in)
     .pipe(concat(javascript.concat))
     .pipe(convertEncoding({to: javascript.encode}))
-    .pipe(uglify())
+    /*.pipe(uglify())*/
     .pipe(gulp.dest(javascript.out));
 });
 

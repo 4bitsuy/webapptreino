@@ -64,3 +64,4 @@ Route::get('instagram', [
 // Plataforma
 Auth::routes();
 Route::get('campus', 'Campus\CampusController@index')->name('campus.home');
+Route::get('campus/perfil', 'Campus\CampusController@index')->name('perfil');

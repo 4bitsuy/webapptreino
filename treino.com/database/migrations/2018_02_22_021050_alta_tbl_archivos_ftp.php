@@ -25,7 +25,7 @@ class AltaTblArchivosFtp extends Migration
               ->onDelete('cascade');
 
           //para mi tendria que ir pero no le gusta, hay que ver como hacerlo por eso lo comento
-          //  $table->primary(['arch_id','tema_id']);
+            $table->unique(['arch_id','tema_id']);
 
         });
     }

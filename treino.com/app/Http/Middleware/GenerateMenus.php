@@ -33,6 +33,11 @@ class GenerateMenus
                   ->link->href('#');;
         });
 
+        \Menu::make('campusSidebar', function ($menu) {
+            $menu->add('Mi Perfil', ['route' => 'perfil']);
+
+        });
+
         return $next($request);
     }
 }

@@ -14,12 +14,14 @@ class AltaTblObjetos extends Migration
     public function up()
     {
         Schema::create('objetos', function (Blueprint $table) {
-            $table->string('obj_panel_id')->unique();
-            $table->string('obj_evento_id')->unique();
+            $table->increments('obj_id');
+            $table->string('obj_panel_id');
+            $table->string('obj_evento_id');
             $table->string('desc_panel')->nullable();
             $table->string('desc_evento')->nullable();
             $table->timestamps();
-            $table->primary(['obj_panel_id','obj_evento_id']);
+
+            $table->unique(['obj_panel_id','obj_evento_id']);
         });
     }
 

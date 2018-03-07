@@ -27,7 +27,7 @@ class AltaTblRelrolusu extends Migration
             ->references('id')
             ->on('usuario')
             ->onDelete('cascade');
-            $table->timestamps();
+          $table->timestamps();
         });
     }
 
