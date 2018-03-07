@@ -41,17 +41,17 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'treinoappdesa.capprxwtu3zb.sa-east-1.rds.amazonaws.com'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'treinoappbd'),
-            'username' => env('DB_USERNAME', 'treinoapp'),
-            'password' => env('DB_PASSWORD', 'treino1234app'),
+            'database' => env('DB_DATABASE', 'treinoapp'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8', /* RS: 20180213 - Cambio por error campo demasiado largo -> 'charset' => 'utf8mb4', */
             'collation' => 'utf8_unicode_ci',/* RS: 20180213 - Cambio por error campo demasiado largo ->'collation' => 'utf8mb4_unicode_ci',*/
             'prefix' => '',
             'strict' => true,
-            'engine' => null,
+            'engine' => 'innodb',
         ],
 
         'wordpress' => [

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 //  RS: 20180213 - RESPALDO por error campo demasiado largo -> use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //RS: 20180213 - RESPALDO por error campo demasiado largo -> Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191);
         //
     }
 
