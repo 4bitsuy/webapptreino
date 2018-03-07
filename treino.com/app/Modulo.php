@@ -24,4 +24,7 @@ class Modulo extends Model
   public function relTemaModulo(){
     return $this->hasOne('App\RelTemaModulo', 'modu_id', 'modu_id');
   }
+  public function relGraMod(){
+    return $this->hasOne('App\RelGraMod', 'modu_id', 'modu_id');
+  }
 }
