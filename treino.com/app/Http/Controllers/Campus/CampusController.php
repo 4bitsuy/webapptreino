@@ -31,16 +31,6 @@ class CampusController extends Controller
       $usuario = $this->getAuthUserInfo();
       $rol = $this->getRolFromUser($this->getAuthUserId());
 
-      /*
-      if ($rol){
-        echo 'rol: '.json_encode($rol);
-        echo '<br>Usuario: '.json_encode($usuario);
-        echo '<br>'.$rol->nombre;
-      } else{
-        echo 'no tiene rol';
-      }
-      */
-
       $this->setSessionUser($usuario, $rol);
 
       return view('campus.home');

@@ -55,13 +55,25 @@ Route::get('persona', [
   'uses'  => 'PersonaController@index'
 ]);
 
-
-// extras
-Route::get('instagram', [
-  'as'    => 'home',
-  'uses'  => 'HomeController@index'
-]);
 // Plataforma
 Auth::routes();
-Route::get('campus', 'Campus\CampusController@index')->name('campus.home');
-Route::get('campus/perfil', 'Campus\CampusController@index')->name('perfil');
+
+Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
+
+  Route::get('/', [
+    'as' => 'home',
+    'uses' => 'CampusController@index'
+    ]);
+  Route::get('{nick}/perfil', [
+    'as'   => 'campus.perfil',
+    'uses' => 'UserController@perfil'
+    ]);
+  Route::get('{nick}/cambioPass', [
+    'as'   => 'campus.cambioPass',
+    'uses' => 'UserController@cambioPass'
+    ]);
+
+  // crud cursos.
+  Route::resource('/grado', 'GradoController');
+
+});

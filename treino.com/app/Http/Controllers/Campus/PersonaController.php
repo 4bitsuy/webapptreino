@@ -15,21 +15,16 @@ class PersonaController extends Controller{
     $persona->per_pri_apellido  = 'Sini';
 
     $persona->save();
-  //$persona = Persona::find(1/* Aca va variable seguro */);
-
-
-  //  $alumno->save();
-  //  $alumno = $persona->personas()->save($alumno);
-
 
     $persona = Persona::get();
     dd($persona);
 
   }
 
+  public function getPersona($id){
 
+    return Persona::find($id);
 
-
-
+  }
 
 }

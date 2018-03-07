@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="" id="page-wrapper">
   <div id="page-inner">
     <div class="row">
@@ -21,8 +20,6 @@
 
                         You are logged in {!! Session::get('usuName') !!}!
                     </div>
-
-                    <a href="{{ route('campus.cursos.workwith') }}">CURSOS</a>
                 </div>
             </div>
           </div>
