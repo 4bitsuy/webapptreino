@@ -22,7 +22,7 @@
                         You are logged in {!! Session::get('usuName') !!}!
                     </div>
 
-                    <a href="{{ route('campus.cursos.workwith') }}">CURSOS</a>
+                    <a href="{{ route('grado.index') }}">CURSOS</a>
                 </div>
             </div>
           </div>

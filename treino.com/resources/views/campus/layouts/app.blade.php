@@ -60,7 +60,15 @@
                 </ul>
               </li>
               <li>
-                <a href="{{ route('grado.index') }}"><i class="fa fa-graduation-cap fa-lg"></i> Cursos</span></a>
+                <a href=""><i class="fa fa-graduation-cap fa-lg"></i> Cursos<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ route('grado.index') }}">Trabajar con cursos</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('modulo.index') }}">Modulos de cursos</a>
+                    </li>
+                </ul>
               </li>
             @endif
           </ul>
