@@ -9,6 +9,8 @@ class Modulo extends Model
   protected $table = 'modulo';
   protected $primaryKey = 'modu_id';
 
+  protected $fillable = ['modu_nombre', 'modu_descripcion'];
+
   public function cursa(){
     return $this->hasOne('App\Cursa','modu_id','modu_id');
   }
@@ -25,6 +27,6 @@ class Modulo extends Model
     return $this->hasOne('App\RelTemaModulo', 'modu_id', 'modu_id');
   }
   public function relGraMod(){
-    return $this->hasOne('App\RelGraMod', 'modu_id', 'modu_id');
+    return $this->hasMany('App\RelGraMod', 'modu_id', 'modu_id');
   }
 }

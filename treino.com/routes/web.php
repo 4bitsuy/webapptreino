@@ -75,5 +75,6 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
 
   // crud cursos.
   Route::resource('/grado', 'GradoController');
-
+  // crud modulos.
+  Route::resource('/modulo', 'ModuloController');
 });

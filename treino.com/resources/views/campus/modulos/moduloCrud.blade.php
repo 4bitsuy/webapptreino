@@ -10,27 +10,27 @@
           <div class="panel-heading">CURSO</div>
 
           <div class="panel-body form-wrap">
-            <form class="" action="{{ route('grado.store') }}" method="post">
+            <form class="" action="{{ route('modulo.store') }}" method="post">
               {{ csrf_field() }}
 
               <div class="form-group">
                 <div class="col-md-4">
-                  <label for="inputAño">Año</label>
-                  <input class="form-control" id="año" name="año" placeholder="Año Curricular">
+                  <label for="inputNombre">Nombre</label>
+                  <input class="form-control" id="año" name="nombre" placeholder="Nombre modulo">
                 </div>
                 <div class="col-md-8">
-                  <label for="inputAño">Descripción</label>
-                  <input class="form-control" id="dsc" name="dsc" placeholder="Nombre Curso">
+                  <label for="inputDescripcion">Descripción</label>
+                  <textarea class="form-control" rows="3" name="descripcion"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-md-6 mb-3">
-                  <label class="control-label" for="date">Fecha inicio</label>
-                  <input class="form-control" class="datepicker" id="inicio-datepicker" name="inicio-date" placeholder="DD/MM/YYY">
-                </div>
-                <div class="col-md-6 mb-3 form_datetime">
-                  <label class="control-label" for="date">Fecha fin</label>
-                  <input class="form-control" class="datepicker" id="fin-datepicker" name="fin-date" placeholder="DD/MM/YYY">
+                  <label class="control-label" for="curso">Dictado en</label>
+                  <select class="form-control" name="curso[]" multiple>
+                    @foreach ($grados as $grado)
+                      <option value="{{ $grado->gra_id }}">{{ $grado->gra_descripcion }}</option>
+                    @endforeach
+                  </select>
                 </div>
               </div>
               <div style="clear:both"></div>

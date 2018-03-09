@@ -21,7 +21,7 @@
         </script>
 
     </head>
-    <body>
+    <body class="institucional">
         @if (session('status'))
             <div class="alert alert-success msg">
               {!! array_get(session('status'), 'mail')  !!}
