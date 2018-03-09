@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Campus;
+
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\CollectionCollection;
 use App\Alumno;
 use App\Persona;
+use App\Cursa;
 
 class AlumnoController extends Controller{
 
@@ -23,15 +25,36 @@ class AlumnoController extends Controller{
 
     //RS -> retorno datos del alumno en session segun ci
     $Documento = $request->session()->get('usuDocu');
-    $personas = Persona::where('per_ci',$Documento)->first();
-    $alumnos = $personas->alumno;
 
+    $DatAlumno = $this->getAlumno($this->$Documento);
+    $DatCursos = $this->getCursos($DatAlumno);
+//  moduloGET
+//  gradoGET
+
+
+    //return $Cursos;
+dd($DatCursos);
+    return view('Alumno.home');
 
 
   }
 
+  private function getAlumno($Documento){
 
+    $persona = Persona::where('per_ci',$Documento)->first();
+    $alumno = $persona->alumno;
 
+    return $alumno;
+
+  }
+
+  private function getAlumno($DatAlumno){
+
+    $Cursos = Cursa::where('alu_id',$DatAlumno->alu_id);
+
+    return $Cursos;
+
+  }
 
 
 

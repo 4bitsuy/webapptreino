@@ -45,15 +45,6 @@ Route::get('usuario', [
   'uses'  => 'UsuarioController@index'
 ]);
 
-Route::get('alumno', [
-  'as'    => 'alumno.principal',
-  'uses'  => 'AlumnoController@index'
-]);
-
-Route::get('persona', [
-  'as'    => 'persona.principal',
-  'uses'  => 'PersonaController@index'
-]);
 
 // Plataforma
 Auth::routes();
@@ -77,4 +68,18 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
   Route::resource('/grado', 'GradoController');
   // crud modulos.
   Route::resource('/modulo', 'ModuloController');
+
+
+  Route::get('alumno', [
+    'as'    => 'alumno.principal',
+    'uses'  => 'AlumnoController@index'
+  ]);
+
+  Route::get('persona', [
+    'as'    => 'persona.principal',
+    'uses'  => 'PersonaController@index'
+  ]);
+
+
+
 });
