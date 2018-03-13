@@ -10,7 +10,14 @@ use App\Cursa;
 
 class AlumnoController extends Controller{
 
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+
   public function index(Request $request){
+
 
     /*$personas = Persona::all();
 
@@ -24,17 +31,17 @@ class AlumnoController extends Controller{
 */
 
     //RS -> retorno datos del alumno en session segun ci
-    $Documento = $request->session()->get('usuDocu');
+  /*  $Documento = $request->session()->get('usuDocu');
 
     $DatAlumno = $this->getAlumno($this->$Documento);
     $DatCursos = $this->getCursos($DatAlumno);
-//  moduloGET
-//  gradoGET
+    */
+    $DatCursos = 'pepe';
 
 
     //return $Cursos;
-dd($DatCursos);
-    return view('Alumno.home');
+//dd($DatCursos);
+    return view('Alumno.home')->whit('DatosCurso',$DatCursos);
 
 
   }
@@ -48,7 +55,7 @@ dd($DatCursos);
 
   }
 
-  private function getAlumno($DatAlumno){
+  private function getCursos($DatAlumno){
 
     $Cursos = Cursa::where('alu_id',$DatAlumno->alu_id);
 
