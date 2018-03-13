@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Campus;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\GradoStoreRequest;
+use App\Http\Requests\GradoUpdateRequest;
+
 use App\Http\Controllers\Controller;
+
 use App\Grado;
 
 class GradoController extends Controller
@@ -13,11 +17,16 @@ class GradoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+      $this->middleware('auth');
+    }
+
     public function index()
     {
-        $grados = Grado::all();
+        $grados = Grado::orderBy('gra_nro', 'DESC')->orderBy('gra_id', 'DESC')->paginate();
 
-        return view('campus.cursos.cursosGral')->with('grados', $grados);
+        return view('campus.cursos.index', compact('grados'));
     }
 
     /**
@@ -27,7 +36,7 @@ class GradoController extends Controller
      */
     public function create()
     {
-        return view('campus.cursos.cursosCrud');
+        return view('campus.cursos.create');
     }
 
     /**
@@ -36,34 +45,27 @@ class GradoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-
+    public function store(GradoStoreRequest $request) {
 
         $gra_nro = $request->input('año');
         $gra_descripcion = $request->input('dsc');
-        $dataDate = date_parse($request->input('inicio-date'));
-        $gra_fch_ini = $dataDate['year'].'-'.$dataDate['month'].'-'.$dataDate['day'];
-        $dataDate = date_parse($request->input('fin-date'));
-        $gra_fch_fin = $dataDate['year'].'-'.$dataDate['month'].'-'.$dataDate['day'];
+        $gra_fch_ini = $this->getDateForDB($request->input('inicio-date'));
+        $gra_fch_fin = $this->getDateForDB($request->input('fin-date'));
+
         $gra_estado = 1;
 
-        // validamos.
-        $ok = true;
+        $grado = new Grado;
 
-        if ($ok) {
-          $grado = new Grado;
+        $grado->gra_nro         = $gra_nro;
+        $grado->gra_descripcion = $gra_descripcion;
+        $grado->gra_fch_ini     = $gra_fch_ini;
+        $grado->gra_fch_fin     = $gra_fch_fin;
+        $grado->gra_estado      = $gra_estado;
 
-          $grado->gra_nro         = $gra_nro;
-          $grado->gra_descripcion = $gra_descripcion;
-          $grado->gra_fch_ini     = $gra_fch_ini;
-          $grado->gra_fch_fin     = $gra_fch_fin;
-          $grado->gra_estado      = $gra_estado;
+        $grado->save();
 
-          $grado->save();
-          return redirect()->route('grado.create');
-        } else{
-          return back()->withInput();
-        }
+        return redirect()->route('grado.edit', $grado->gra_id)
+        ->with('info', 'Curso creado con éxito');
     }
 
     /**
@@ -74,7 +76,9 @@ class GradoController extends Controller
      */
     public function show($id)
     {
-        //
+        $grado = Grado::find($id);
+
+        return view('campus.cursos.show', compact('grado'));
     }
 
     /**
@@ -85,7 +89,9 @@ class GradoController extends Controller
      */
     public function edit($id)
     {
-        //
+      $grado = Grado::find($id);
+
+      return view('campus.cursos.edit', compact('grado'));
     }
 
     /**
@@ -95,9 +101,14 @@ class GradoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GradoUpdateRequest $request, $id)
     {
-        //
+        $grado = Grado::find($id);
+
+        $grado->fill($request->all())->save();
+
+        return redirect()->route('grado.edit', $grado->id)
+        ->with('info', 'Curso modificado con éxito');
     }
 
     /**
@@ -108,6 +119,15 @@ class GradoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $grado = Grado::find($id)->delete();
+
+        return back()->with('info', 'Curso '.$grado->gra_descripcion.' eliminado');
+    }
+
+    private function getDateForDB($strDate){
+      $dataDate = date_parse($strDate);
+      $fchFormat = $dataDate['year'].'-'.$dataDate['month'].'-'.$dataDate['day'];
+
+      return $fchFormat;
     }
 }

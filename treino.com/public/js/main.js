@@ -2331,17 +2331,6 @@ $(document).ready(function() {
 
     getInfoCursos(idCursos);
   });
-
-  /** Date picker **/
-  $(function () {
-    $.datepicker.setDefaults($.datepicker.regional["es"]);
-    $("#fin-datepicker").datepicker({
-      firstDay: 1,
-    });
-    $("#inicio-datepicker").datepicker({
-      firstDay: 1,
-    });
-  });
 });
 
 $("#escuela").click(function() {

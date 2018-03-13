@@ -15,6 +15,11 @@ class ModuloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+      $this->middleware('auth');
+    }
+    
     public function index()
     {
         $modulos = Modulo::all();
@@ -53,7 +58,8 @@ class ModuloController extends Controller
         $modulo->modu_descripcion = $modu_descripcion;
 
         foreach ($cursos as $curso) {
-          $modulo->relGraMod()->save($curso);
+          $grado = Grado::find($curso);
+
         }
 
         $modulo->save();

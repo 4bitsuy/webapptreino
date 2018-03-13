@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Campus;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\CollectionCollection;
+
+use App\Http\Controllers\Controller;
+
 use App\Alumno;
 use App\Persona;
 use App\Cursa;
@@ -38,7 +41,7 @@ dd($DatCursos);
 
 
   }
-
+/*
   private function getAlumno($Documento){
 
     $persona = Persona::where('per_ci',$Documento)->first();
@@ -55,7 +58,7 @@ dd($DatCursos);
     return $Cursos;
 
   }
-
+*/
 
 
 }

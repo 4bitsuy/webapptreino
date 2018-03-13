@@ -181,7 +181,7 @@ return [
         Corcel\Laravel\CorcelServiceProvider::class, // conexion con wordpress
         Lavary\Menu\ServiceProvider::class, // para crear menus.
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class, // para levantar datos de javascript.
-
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -232,6 +232,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Menu' => Lavary\Menu\Facade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];
