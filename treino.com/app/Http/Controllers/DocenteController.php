@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\CollectionCollection;
 use App\Docente;
 use App\Persona;
 
-class AlumnoController extends Controller{
+class DocenteController extends Controller{
 
   public function index(Request $request){
 

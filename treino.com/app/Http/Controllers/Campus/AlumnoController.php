@@ -27,7 +27,6 @@ class AlumnoController extends Controller{
     $alumnos = $personas->alumno;
 
 
-
   }
 
 
