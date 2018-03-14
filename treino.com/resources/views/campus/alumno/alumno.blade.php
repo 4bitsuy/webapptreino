@@ -12,14 +12,11 @@
                       <div class="panel-heading">Dashboard</div>
 
                       <div class="panel-body">
-                          @foreach ($DatCursos as $DatCurso)
-                            @foreach ($DatCurso as $key => $value)
-                              <div class="col-xs-6 col-lg-3 fondo-curso" id="{!! $value !!}">
-                                <div class="background-curso">
-
-                                </div>
-                            <br>
-                            @endforeach
+                          @foreach ($datos_cursos as $datos_curso)
+                            <h4>{{ $datos_curso->gra_id }}</h4>
+                            <h4>{{ $datos_curso->modu_id }}</h4>
+                            <h4>{{ $datos_curso->alu_id }}</h4>
+                            <h4>{{ $datos_curso->cur_estado }}</h4>
                           @endforeach
                         DASHBOARD ALUMNO
                       </div>
@@ -30,4 +27,4 @@
       </div>
     </div>
   </div>
-  @endsection
+@endsection

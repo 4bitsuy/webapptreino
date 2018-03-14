@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Campus;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\CollectionCollection;
+use App\Http\Controllers\Controller;
 use App\Alumno;
 use App\Persona;
 use App\Cursa;
@@ -31,33 +32,36 @@ class AlumnoController extends Controller{
 */
 
     //RS -> retorno datos del alumno en session segun ci
-  /*  $Documento = $request->session()->get('usuDocu');
+    $Documento = $request->session()->get('usuDocu');
+$Documento = '50640349';
+    $alu_id = $this->getAlumno($Documento);
+    $datos_cursos = $this->getCursos($alu_id);
 
-    $DatAlumno = $this->getAlumno($this->$Documento);
-    $DatCursos = $this->getCursos($DatAlumno);
-    */
-    $DatCursos = 'pepe';
+    //$DatCursos = 'pepe';
 
 
     //return $Cursos;
-//dd($DatCursos);
-    return view('Alumno.home')->whit('DatosCurso',$DatCursos);
+//dd($datos_cursos);
+    return view('campus.alumno.alumno')->with('datos_cursos',$datos_cursos);
 
 
   }
 
   private function getAlumno($Documento){
 
-    $persona = Persona::where('per_ci',$Documento)->first();
-    $alumno = $persona->alumno;
+  //  $persona = Persona::where('per_ci',$Documento)->first();
+    $per_id = Persona::where('per_ci',$Documento)->pluck('per_id')->first();
+    $alu_id = Alumno::where('alu_per_id',$per_id)->pluck('alu_nro')->first();
+    //$alumno = $persona->personas()->all();
 
-    return $alumno;
+    return $alu_id;
 
   }
 
-  private function getCursos($DatAlumno){
+  private function getCursos($alu_id){
 
-    $Cursos = Cursa::where('alu_id',$DatAlumno->alu_id);
+
+    $Cursos = Cursa::where('alu_id',$alu_id)->first();
 
     return $Cursos;
 

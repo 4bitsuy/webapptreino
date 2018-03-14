@@ -8,6 +8,8 @@ class Cursa extends Model
 {
   protected $table = 'cursa';
   protected $primaryKey = 'cur_id';
+  protected $fillable = ['gra_id', 'modu_id', 'alu_id', 'cur_estado'];
+
 
   public function grado(){
     return $this->belongsTo('App\Grado','gra_id');
