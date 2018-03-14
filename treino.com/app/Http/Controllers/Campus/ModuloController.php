@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Campus;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Modulo;
+use App\RelGraMod;
 use App\Grado;
 
-class GradoController extends Controller
+class ModuloController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,8 @@ class GradoController extends Controller
      */
     public function index()
     {
-        $grados = Grado::all();
-
-        return view('campus.cursos.cursosGral')->with('grados', $grados);
+        $modulos = Modulo::all();
+        return view('campus.modulos.moduloGral')->with('modulos', $modulos);
     }
 
     /**
@@ -27,7 +28,8 @@ class GradoController extends Controller
      */
     public function create()
     {
-        return view('campus.cursos.cursosCrud');
+        $grados = Grado::all();
+        return view('campus.modulos.moduloCrud')->with('grados', $grados);
     }
 
     /**
@@ -36,34 +38,27 @@ class GradoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
+      $modu_nombre = $request->input('nombre');
+      $modu_descripcion = $request->input('descripcion');
+      $cursos = $request->input('curso');
 
+      // validamos.
+      $ok = true;
 
-        $gra_nro = $request->input('año');
-        $gra_descripcion = $request->input('dsc');
-        $dataDate = date_parse($request->input('inicio-date'));
-        $gra_fch_ini = $dataDate['year'].'-'.$dataDate['month'].'-'.$dataDate['day'];
-        $dataDate = date_parse($request->input('fin-date'));
-        $gra_fch_fin = $dataDate['year'].'-'.$dataDate['month'].'-'.$dataDate['day'];
-        $gra_estado = 1;
+      if ($ok) {
+        $modulo = new Modulo;
+        $modulo->modu_nombre = $modu_nombre;
+        $modulo->modu_descripcion = $modu_descripcion;
 
-        // validamos.
-        $ok = true;
-
-        if ($ok) {
-          $grado = new Grado;
-
-          $grado->gra_nro         = $gra_nro;
-          $grado->gra_descripcion = $gra_descripcion;
-          $grado->gra_fch_ini     = $gra_fch_ini;
-          $grado->gra_fch_fin     = $gra_fch_fin;
-          $grado->gra_estado      = $gra_estado;
-
-          $grado->save();
-          return redirect()->route('grado.create');
-        } else{
-          return back()->withInput();
+        foreach ($cursos as $curso) {
+          $modulo->relGraMod()->save($curso);
         }
+
+        $modulo->save();
+        return redirect()->route('modulo.create');
+      }
     }
 
     /**

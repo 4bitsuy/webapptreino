@@ -23,8 +23,4 @@ class Grado extends Model
   public function relGraMod(){
     return $this->hasMany('App\RelGraMod','gra_id','gra_id');
   }
-
-  public function relGraMod(){
-    return $this->hasOne('App\RelGraMod', 'gra_id', 'gra_id');
-  }
 }
