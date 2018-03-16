@@ -49,6 +49,8 @@ $Documento = '50640349';
     return view('campus.alumno.alumno', compact('datos_cursos'));
 
 
+<<<<<<< HEAD
+=======
   }
 
   private function getAlumno($Documento){
@@ -60,6 +62,7 @@ $Documento = '50640349';
 
     return $alu_id;
 
+>>>>>>> cf2670fcf8317a4a2a311b08f3dcdfc621b7e581
   }
 
   private function getCursos($alu_id){

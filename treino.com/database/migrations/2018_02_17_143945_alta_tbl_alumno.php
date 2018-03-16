@@ -17,6 +17,8 @@ class AltaTblAlumno extends Migration
             $table->increments('alu_nro');
             $table->integer('alu_per_id')->unsigned();
 
+            //$table->primary(['alu_per_id','alu_nro']);
+
             $table->foreign('alu_per_id')
               ->references('per_id')
               ->on('persona')
