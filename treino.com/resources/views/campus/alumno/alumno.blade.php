@@ -13,10 +13,10 @@
 
                       <div class="panel-body">
                           @foreach ($datos_cursos as $datos_curso)
-                            <h4>{{ $datos_curso->gra_id }}</h4>
-                            <h4>{{ $datos_curso->modu_id }}</h4>
-                            <h4>{{ $datos_curso->alu_id }}</h4>
-                            <h4>{{ $datos_curso->cur_estado }}</h4>
+                            @foreach ($datos_curso as $key => $value)
+                              {!! $key !!} - {!! $value !!}
+                              <br>
+                            @endforeach
                           @endforeach
                         DASHBOARD ALUMNO
                       </div>
