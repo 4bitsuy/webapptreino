@@ -17,6 +17,10 @@ class AlumnoController extends Controller{
    * @return \Illuminate\Http\Response
    */
 
+   public function __construct(){
+       $this->middleware('auth');
+   }
+
   public function index(Request $request){
 
 
@@ -42,7 +46,7 @@ $Documento = '50640349';
 
     //return $Cursos;
 //dd($datos_cursos);
-    return view('campus.alumno.alumno')->with('datos_cursos',$datos_cursos);
+    return view('campus.alumno.alumno', compact('datos_cursos'));
 
 
   }
@@ -61,7 +65,7 @@ $Documento = '50640349';
   private function getCursos($alu_id){
 
 
-    $Cursos = Cursa::where('alu_id',$alu_id)->first();
+    $Cursos = Cursa::where('alu_id',$alu_id)->get();
 
     return $Cursos;
 
