@@ -4,14 +4,8 @@ namespace App\Http\Controllers\Campus;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\CollectionCollection;
-<<<<<<< HEAD
-
-use App\Http\Controllers\Controller;
-
-=======
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
->>>>>>> 14d6e879ad54ea8b744ee9c96bdd781a8d099f90
 use App\Alumno;
 use App\Persona;
 use App\Cursa;
@@ -61,12 +55,7 @@ class AlumnoController extends Controller{
     return $alu_id;
 
   }
-<<<<<<< HEAD
-/*
-  private function getAlumno($Documento){
-=======
 
->>>>>>> 14d6e879ad54ea8b744ee9c96bdd781a8d099f90
 
   private function getCursos($alu_id){
 
@@ -103,7 +92,6 @@ class AlumnoController extends Controller{
     return $datos_cursos;
 
   }
-*/
 
 
 }
