@@ -24,8 +24,6 @@ class GradoStoreRequest extends FormRequest
     public function rules()
     {
 
-      dd($request);
-
         return [
             'año' => 'required',
             'dsc' => 'required',
