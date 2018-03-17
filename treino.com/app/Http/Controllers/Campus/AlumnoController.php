@@ -4,14 +4,31 @@ namespace App\Http\Controllers\Campus;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\CollectionCollection;
+<<<<<<< HEAD
 
 use App\Http\Controllers\Controller;
 
+=======
+use Illuminate\Support\Collection;
+use App\Http\Controllers\Controller;
+>>>>>>> 14d6e879ad54ea8b744ee9c96bdd781a8d099f90
 use App\Alumno;
 use App\Persona;
 use App\Cursa;
+use App\Modulo;
+use App\Grado;
 
 class AlumnoController extends Controller{
+
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+   public function __construct(){
+       $this->middleware('auth');
+   }
 
   public function index(Request $request){
 
@@ -28,34 +45,62 @@ class AlumnoController extends Controller{
 
     //RS -> retorno datos del alumno en session segun ci
     $Documento = $request->session()->get('usuDocu');
-
-    $DatAlumno = $this->getAlumno($this->$Documento);
-    $DatCursos = $this->getCursos($DatAlumno);
-//  moduloGET
-//  gradoGET
-
-
-    //return $Cursos;
-dd($DatCursos);
-    return view('Alumno.home');
-
+    $Documento = '50640349'; //documento temporal par no tener que loguear
+    $alu_id = $this->getAlumno($Documento);
+    $datos_cursos = $this->getCursos($alu_id);
+    //dd($datos_cursos);
+    return view('campus.alumno.alumno', compact('datos_cursos'));
 
   }
-/*
+
   private function getAlumno($Documento){
 
-    $persona = Persona::where('per_ci',$Documento)->first();
-    $alumno = $persona->alumno;
+    $per_id = Persona::where('per_ci',$Documento)->pluck('per_id')->first();
+    $alu_id = Alumno::where('alu_per_id',$per_id)->pluck('alu_nro')->first();
 
-    return $alumno;
+    return $alu_id;
 
   }
+<<<<<<< HEAD
+/*
+  private function getAlumno($Documento){
+=======
 
-  private function getAlumno($DatAlumno){
+>>>>>>> 14d6e879ad54ea8b744ee9c96bdd781a8d099f90
 
-    $Cursos = Cursa::where('alu_id',$DatAlumno->alu_id);
+  private function getCursos($alu_id){
 
-    return $Cursos;
+    $Cursos = Cursa::where('alu_id',$alu_id)->get();
+
+    $datos_cursos = [];
+
+    foreach ($Cursos as $Curso) {
+        $Modulo = Modulo::where('modu_id',$Curso->modu_id)->first();
+        $Grado  = Grado::where('gra_id',$Curso->gra_id)->first();
+
+
+        $item_datos_cursos = [];
+        $item_datos_cursos =
+        [
+            'cur_id' => $Curso->cur_id,
+            'alu_id' => $Curso->alu_id,
+            'gra_id' => $Curso->gra_id,
+            'gra_nro' => $Grado->gra_nro,
+            'gra_descripcion' => $Grado->gra_descripcion,
+            'gra_fch_ini' => $Grado->gra_fch_ini,
+            'gra_fch_fin' => $Grado->gra_fch_fin,
+            'gra_estado' => $Grado->gra_estado,
+            'modu_id' => $Curso->modu_id,
+            'modu_nombre' => $Modulo->modu_nombre,
+            'modu_descripcion' => $Modulo->modu_descripcion,
+            'cur_estado' => $Curso->cur_estado
+        ];// Fin array
+        $datos_cursos = \array_add($datos_cursos,$Curso->cur_id,$item_datos_cursos); //Agrego una coleccion de arrays
+
+    } //Fin foreach
+
+
+    return $datos_cursos;
 
   }
 */

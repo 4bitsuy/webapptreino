@@ -70,12 +70,12 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
   Route::resource('/modulo', 'ModuloController');
 
 
-  Route::get('alumno', [
+  Route::get('/alumno', [
     'as'    => 'alumno.principal',
     'uses'  => 'AlumnoController@index'
   ]);
 
-  Route::get('persona', [
+  Route::get('/persona', [
     'as'    => 'persona.principal',
     'uses'  => 'PersonaController@index'
   ]);
