@@ -39,7 +39,7 @@ class AlumnoController extends Controller{
 
     //RS -> retorno datos del alumno en session segun ci
     $Documento = $request->session()->get('usuDocu');
-    $Documento = '50640349'; //documento temporal par no tener que loguear
+    //$Documento = '50640349'; //documento temporal par no tener que loguear
     $alu_id = $this->getAlumno($Documento);
     $datos_cursos = $this->getCursos($alu_id);
     //dd($datos_cursos);
@@ -67,10 +67,12 @@ class AlumnoController extends Controller{
         $Modulo = Modulo::where('modu_id',$Curso->modu_id)->first();
         $Grado  = Grado::where('gra_id',$Curso->gra_id)->first();
 
-
         $item_datos_cursos = [];
         $item_datos_cursos =
         [
+            'modu_nombre' => $Modulo->modu_nombre,
+            'modu_id' => $Curso->modu_id,
+            'modu_descripcion' => $Modulo->modu_descripcion,
             'cur_id' => $Curso->cur_id,
             'alu_id' => $Curso->alu_id,
             'gra_id' => $Curso->gra_id,
@@ -79,12 +81,9 @@ class AlumnoController extends Controller{
             'gra_fch_ini' => $Grado->gra_fch_ini,
             'gra_fch_fin' => $Grado->gra_fch_fin,
             'gra_estado' => $Grado->gra_estado,
-            'modu_id' => $Curso->modu_id,
-            'modu_nombre' => $Modulo->modu_nombre,
-            'modu_descripcion' => $Modulo->modu_descripcion,
             'cur_estado' => $Curso->cur_estado
         ];// Fin array
-        $datos_cursos = \array_add($datos_cursos,$Curso->cur_id,$item_datos_cursos); //Agrego una coleccion de arrays
+        $datos_cursos = array_add($datos_cursos,$Curso->cur_id,$item_datos_cursos); //Agrego una coleccion de arrays
 
     } //Fin foreach
 

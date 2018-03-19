@@ -109,6 +109,9 @@
 
     <!-- Scripts -->
     <script src="{{ URL::asset('js/main.js') }}" charset="utf-8"></script>
+    <script src="{{ URL::asset('js/excanvas.js') }}" charset="utf-8"></script>
+    <script src="{{ URL::asset('js/jquery.knob.min.js') }}" charset="utf-8"></script>
+    <script src="{{ URL::asset('js/knoob.custom.js') }}" charset="utf-8"></script>
     @yield('scripts')
 </body>
 </html>
