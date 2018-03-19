@@ -1,21 +1,25 @@
   <div class="form-group">
     <div class="col-md-4">
-      {{ Form::label('año', 'Año') }}
-      {{ Form::text('gru_nro', null, ['class' => 'form-control', 'id' => 'año', 'placeholder' => 'Año Curricular']) }}
+      {{ Form::label('gra_nro', 'Año') }}
+      {{ Form::text('gra_nro', null, ['class' => 'form-control', 'id' => 'año', 'placeholder' => 'Año Curricular']) }}
     </div>
     <div class="col-md-8">
-      {{ Form::label('dsc', 'Descripción') }}
-      {{ Form::text('gru_descripcion', null, ['class' => 'form-control', 'id' => 'dsc', 'placeholder' => 'Nombre Curso']) }}
+      {{ Form::label('gra_descripcion', 'Descripción') }}
+      {{ Form::text('gra_descripcion', null, ['class' => 'form-control', 'id' => 'dsc', 'placeholder' => 'Nombre Curso']) }}
     </div>
   </div>
   <div class="form-group">
     <div class="col-md-6">
-      {{ Form::label('inicio-date', 'Fecha inicio') }}
-      {{ Form::text('gru_fch_ini', null, ['class' => 'form-control datepicker', 'id' => 'inicio-datepicker', 'placeholder' => 'DD/MM/YYY']) }}
+      {{ Form::label('gra_fch_ini', 'Fecha inicio') }}
+      {{ Form::text('gra_fch_ini', null, ['class' => 'form-control datepicker', 'id' => 'inicio-datepicker', 'placeholder' => 'DD/MM/YYY']) }}
     </div>
     <div class="col-md-6">
-      {{ Form::label('fin-date', 'Fecha fin') }}
-      {{ Form::text('gru_fch_fin', null, ['class' => 'form-control datepicker', 'id' => 'fin-datepicker', 'placeholder' => 'DD/MM/YYY']) }}
+      {{ Form::label('gra_fch_fin', 'Fecha fin') }}
+      {{ Form::text('gra_fch_fin', null, [
+        'class' => 'form-control datepicker',
+        'id' => 'fin-datepicker',
+        'placeholder' => 'DD/MM/YYY'
+        ]) }}
     </div>
   </div>
   <div style="clear:both"></div>

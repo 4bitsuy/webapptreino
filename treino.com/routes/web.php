@@ -39,13 +39,6 @@ Route::get('blog/{entrada}', [
   'uses'  => 'BlogController@getEntrada'
 ]);
 
-
-Route::get('usuario', [
-  'as'    => 'usuario.principal',
-  'uses'  => 'UsuarioController@index'
-]);
-
-
 // Plataforma
 Auth::routes();
 
@@ -68,6 +61,8 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
   Route::resource('/grado', 'GradoController');
   // crud modulos.
   Route::resource('/modulo', 'ModuloController');
+  // crud temas.
+  Route::resource('/tema', 'TemaController');
 
 
   Route::get('/alumno', [

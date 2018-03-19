@@ -47,10 +47,10 @@ class GradoController extends Controller
      */
     public function store(GradoStoreRequest $request) {
 
-        $gra_nro = $request->input('año');
-        $gra_descripcion = $request->input('dsc');
-        $gra_fch_ini = $this->getDateForDB($request->input('inicio-date'));
-        $gra_fch_fin = $this->getDateForDB($request->input('fin-date'));
+        $gra_nro = $request->input('gra_nro');
+        $gra_descripcion = $request->input('gra_descripcion');
+        $gra_fch_ini = $this->getDateForDB($request->input('gra_fch_ini'));
+        $gra_fch_fin = $this->getDateForDB($request->input('gra_fch_fin'));
 
         $gra_estado = 1;
 
