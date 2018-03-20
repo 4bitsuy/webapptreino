@@ -42,11 +42,8 @@ return array(
     'App\\Http\\Requests\\GradoUpdateRequest' => $baseDir . '/app/Http/Requests/GradoUpdateRequest.php',
     'App\\Http\\Requests\\ModuloStoreRequest' => $baseDir . '/app/Http/Requests/ModuloStoreRequest.php',
     'App\\Http\\Requests\\ModuloUpdateRequest' => $baseDir . '/app/Http/Requests/ModuloUpdateRequest.php',
-<<<<<<< HEAD
-=======
     'App\\Http\\Requests\\TemaStoreRequest' => $baseDir . '/app/Http/Requests/TemaStoreRequest.php',
     'App\\Http\\Requests\\TemaUpdateRequest' => $baseDir . '/app/Http/Requests/TemaUpdateRequest.php',
->>>>>>> 51dbc33df03354bca00c69b8c26b6d5120c5e182
     'App\\Lista' => $baseDir . '/app/Lista.php',
     'App\\Models\\linkWP\\Posts' => $baseDir . '/app/Models/linkWP/Posts.php',
     'App\\Models\\linkWP\\RelTaxPosts' => $baseDir . '/app/Models/linkWP/RelTaxPosts.php',
