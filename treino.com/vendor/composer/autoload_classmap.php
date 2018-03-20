@@ -42,6 +42,11 @@ return array(
     'App\\Http\\Requests\\GradoUpdateRequest' => $baseDir . '/app/Http/Requests/GradoUpdateRequest.php',
     'App\\Http\\Requests\\ModuloStoreRequest' => $baseDir . '/app/Http/Requests/ModuloStoreRequest.php',
     'App\\Http\\Requests\\ModuloUpdateRequest' => $baseDir . '/app/Http/Requests/ModuloUpdateRequest.php',
+<<<<<<< HEAD
+=======
+    'App\\Http\\Requests\\TemaStoreRequest' => $baseDir . '/app/Http/Requests/TemaStoreRequest.php',
+    'App\\Http\\Requests\\TemaUpdateRequest' => $baseDir . '/app/Http/Requests/TemaUpdateRequest.php',
+>>>>>>> 51dbc33df03354bca00c69b8c26b6d5120c5e182
     'App\\Lista' => $baseDir . '/app/Lista.php',
     'App\\Models\\linkWP\\Posts' => $baseDir . '/app/Models/linkWP/Posts.php',
     'App\\Models\\linkWP\\RelTaxPosts' => $baseDir . '/app/Models/linkWP/RelTaxPosts.php',
@@ -3729,6 +3734,7 @@ return array(
     'Symfony\\Component\\Routing\\Loader\\Configurator\\Traits\\RouteTrait' => $vendorDir . '/symfony/routing/Loader/Configurator/Traits/RouteTrait.php',
     'Symfony\\Component\\Routing\\Loader\\DependencyInjection\\ServiceRouterLoader' => $vendorDir . '/symfony/routing/Loader/DependencyInjection/ServiceRouterLoader.php',
     'Symfony\\Component\\Routing\\Loader\\DirectoryLoader' => $vendorDir . '/symfony/routing/Loader/DirectoryLoader.php',
+    'Symfony\\Component\\Routing\\Loader\\GlobFileLoader' => $vendorDir . '/symfony/routing/Loader/GlobFileLoader.php',
     'Symfony\\Component\\Routing\\Loader\\ObjectRouteLoader' => $vendorDir . '/symfony/routing/Loader/ObjectRouteLoader.php',
     'Symfony\\Component\\Routing\\Loader\\PhpFileLoader' => $vendorDir . '/symfony/routing/Loader/PhpFileLoader.php',
     'Symfony\\Component\\Routing\\Loader\\ProtectedPhpFileLoader' => $vendorDir . '/symfony/routing/Loader/PhpFileLoader.php',

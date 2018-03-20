@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3d27795cad8d5be612b5aef336e69827
+class ComposerStaticInite4375b103f6e7a17f4307c52767c5858
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -496,6 +496,8 @@ class ComposerStaticInit3d27795cad8d5be612b5aef336e69827
         'App\\Http\\Requests\\GradoUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/GradoUpdateRequest.php',
         'App\\Http\\Requests\\ModuloStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ModuloStoreRequest.php',
         'App\\Http\\Requests\\ModuloUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ModuloUpdateRequest.php',
+        'App\\Http\\Requests\\TemaStoreRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TemaStoreRequest.php',
+        'App\\Http\\Requests\\TemaUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TemaUpdateRequest.php',
         'App\\Lista' => __DIR__ . '/../..' . '/app/Lista.php',
         'App\\Models\\linkWP\\Posts' => __DIR__ . '/../..' . '/app/Models/linkWP/Posts.php',
         'App\\Models\\linkWP\\RelTaxPosts' => __DIR__ . '/../..' . '/app/Models/linkWP/RelTaxPosts.php',
@@ -4183,6 +4185,7 @@ class ComposerStaticInit3d27795cad8d5be612b5aef336e69827
         'Symfony\\Component\\Routing\\Loader\\Configurator\\Traits\\RouteTrait' => __DIR__ . '/..' . '/symfony/routing/Loader/Configurator/Traits/RouteTrait.php',
         'Symfony\\Component\\Routing\\Loader\\DependencyInjection\\ServiceRouterLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/DependencyInjection/ServiceRouterLoader.php',
         'Symfony\\Component\\Routing\\Loader\\DirectoryLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/DirectoryLoader.php',
+        'Symfony\\Component\\Routing\\Loader\\GlobFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/GlobFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\ObjectRouteLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/ObjectRouteLoader.php',
         'Symfony\\Component\\Routing\\Loader\\PhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\ProtectedPhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
@@ -4488,10 +4491,10 @@ class ComposerStaticInit3d27795cad8d5be612b5aef336e69827
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit3d27795cad8d5be612b5aef336e69827::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit3d27795cad8d5be612b5aef336e69827::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit3d27795cad8d5be612b5aef336e69827::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit3d27795cad8d5be612b5aef336e69827::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite4375b103f6e7a17f4307c52767c5858::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite4375b103f6e7a17f4307c52767c5858::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInite4375b103f6e7a17f4307c52767c5858::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInite4375b103f6e7a17f4307c52767c5858::$classMap;
 
         }, null, ClassLoader::class);
     }

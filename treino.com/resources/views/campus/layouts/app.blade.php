@@ -66,7 +66,10 @@
                         <a href="{{ route('grado.index') }}">Trabajar con cursos</a>
                     </li>
                     <li>
-                        <a href="{{ route('modulo.index') }}">Modulos de cursos</a>
+                        <a href="{{ route('modulo.index') }}">Trabajar con módulos</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('tema.index') }}">Trabajar con temas</a>
                     </li>
                 </ul>
               </li>

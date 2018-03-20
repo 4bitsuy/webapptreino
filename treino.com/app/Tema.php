@@ -10,8 +10,10 @@ class Tema extends Model
     protected $table = 'tema';
     protected $primaryKey = 'tema_id';
 
+    protected $fillable = ['tema_nombre', 'tema_descripcion'];
+
     public function relTemaModulo(){
-      return $this->hasOne('App\RelTemaModulo', 'tema_id', 'tema_id');
+      return $this->hasMany('App\RelTemaModulo', 'tema_id', 'tema_id');
     }
 
 }
