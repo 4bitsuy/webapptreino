@@ -3,16 +3,9 @@
 namespace App\Http\Controllers\Campus;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ModuloStoreRequest;
-use App\Http\Requests\ModuloUpdateRequest;
-
 use App\Http\Controllers\Controller;
 
-use App\Modulo;
-use App\RelGraMod;
-use App\Grado;
-
-class ModuloController extends Controller
+class TemaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +14,14 @@ class ModuloController extends Controller
      */
 
     public function __construct(){
-      $this->middleware('auth');
+       $this->middleware('auth');
     }
 
     public function index()
     {
-        $modulos = Modulo::orderBy('modu_id', 'DESC')->paginate();
+      $temas = Tema::orderBy('tema_id', 'DESC')->paginate();
 
-        return view('campus.modulos.index', compact('modulos'));
+      return view('campus.temas.index', compact('temas'));
     }
 
     /**
@@ -38,7 +31,7 @@ class ModuloController extends Controller
      */
     public function create()
     {
-        return view('campus.modulos.create');
+        //
     }
 
     /**
@@ -47,23 +40,9 @@ class ModuloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ModuloStoreRequest $request)
+    public function store(Request $request)
     {
-      $modulo = Modulo::create($request->all());
-
-      $cursos = $request->grado;
-      if (isset($cursos)){
-
-        for ($i=0; $i < count($cursos); $i++) {
-          $relGraMod = new RelGraMod(['gra_id' => $cursos[$i]]);
-
-          $modulo->relGraMod()->save($relGraMod);
-        }
-
-      }
-
-      return redirect()->route('modulo.edit', $modulo->modu_id)
-            ->with('info', 'Módulo creado con éxito');
+        //
     }
 
     /**
@@ -74,11 +53,7 @@ class ModuloController extends Controller
      */
     public function show($id)
     {
-      $modulo = Modulo::find($id);
-
-      $relGraMods = $modulo->RelGraMod()->get();
-
-      return view('campus.modulos.show', compact('modulo'));
+        //
     }
 
     /**
@@ -89,9 +64,7 @@ class ModuloController extends Controller
      */
     public function edit($id)
     {
-      $modulo = Modulo::find($id);
-
-      return view('campus.modulos.edit', compact('modulo'));
+        //
     }
 
     /**
@@ -115,9 +88,5 @@ class ModuloController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    private function newRelGraMod($cursos){
-
     }
 }

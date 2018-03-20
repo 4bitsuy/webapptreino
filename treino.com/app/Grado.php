@@ -23,4 +23,13 @@ class Grado extends Model
   public function relGraMod(){
     return $this->hasMany('App\RelGraMod','gra_id','gra_id');
   }
+
+  public function modulo(){
+    return $this->hasManyThrough(
+      'App\Modulo',
+      'App\RelGraMod',
+      'gra_id',
+      'relgramod_id'
+    );
+  }
 }

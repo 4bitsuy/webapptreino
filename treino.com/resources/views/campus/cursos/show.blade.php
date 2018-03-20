@@ -7,7 +7,12 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-          <div class="panel-heading">CURSO</div>
+          <div class="panel-heading">
+            CURSO
+            <a href="{{ URL::previous() }}" class="btn btn-sm btn-primary pull-right" title="volver">
+              <i class="fa fa-chevron-circle-left"></i>
+            </a>
+          </div>
 
           <div class="panel-body form-wrap">
             <div class="form-group">

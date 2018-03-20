@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GradoStoreRequest extends FormRequest
+class ModuloUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class GradoStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,17 +23,8 @@ class GradoStoreRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
-            'gra_nro' => 'required',
-            'gra_descripcion' => 'required',
+            //
         ];
-    }
-
-    private function getDateForDB($strDate){
-      $dataDate = date_parse($strDate);
-      $fchFormat = $dataDate['year'].'-'.$dataDate['month'].'-'.$dataDate['day'];
-
-      return $fchFormat;
     }
 }
