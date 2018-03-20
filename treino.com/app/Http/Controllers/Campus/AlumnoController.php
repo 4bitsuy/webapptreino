@@ -70,8 +70,16 @@ class AlumnoController extends Controller{
         $Modulo = Modulo::where('modu_id',$Curso->modu_id)->first();
         $Grado  = Grado::where('gra_id',$Curso->gra_id)->first();
         $Tema  = Tema::where('tema_id',$TemaId)->first();
-    
-        $PorcentajeCurso =  $this->getPorcentCurso($Tema);
+        
+        if ($Tema->tema_es_cur_corto){
+          $Fch_ini = $Tema->tema_fch_ini;
+          $Fch_fin = $Tema->tema_fch_fin;
+        }else{
+          $Fch_ini = $Grado->gra_fch_ini;
+          $Fch_fin = $Grado->gra_fch_fin;
+        }
+      
+        $PorcentajeCurso =  $this->getPorcentCurso($Fch_ini,$Fch_fin);
 
         $item_datos_cursos = [];
         $item_datos_cursos =
@@ -99,16 +107,15 @@ class AlumnoController extends Controller{
 
     } //Fin foreach
 
-
     return $datos_cursos;
 
   }//Fin Function getCursos
   
   
-  private function getPorcentCurso($Tema){
+  private function getPorcentCurso($Fch_ini,$Fch_fin){
     
-    if (isset($Tema->tema_fch_ini) && isset($Tema->tema_fch_fin)){
-      $PorcentajeCurso = $Tema->tema_fch_ini->diffInDays($Tema->tema_fch_fin);
+    if (isset($Fch_ini) && isset($Fch_fin)){
+      $PorcentajeCurso = $Fch_ini->diffInDays($Fch_fin);
     }else{
       $PorcentajeCurso = 0;
     }
