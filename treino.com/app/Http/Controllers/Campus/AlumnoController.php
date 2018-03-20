@@ -11,6 +11,7 @@ use App\Persona;
 use App\Cursa;
 use App\Modulo;
 use App\Grado;
+use App\RelTemaAlu;
 
 class AlumnoController extends Controller{
 
@@ -60,12 +61,14 @@ class AlumnoController extends Controller{
   private function getCursos($alu_id){
 
     $Cursos = Cursa::where('alu_id',$alu_id)->get();
+    $RelTemaAlu  = RelTemaAlu::where('alu_id',$alu_id)->first();
 
     $datos_cursos = [];
 
     foreach ($Cursos as $Curso) {
         $Modulo = Modulo::where('modu_id',$Curso->modu_id)->first();
         $Grado  = Grado::where('gra_id',$Curso->gra_id)->first();
+        $Tema  = Tema::where('tema_id',$Curso->tema_id)->first();
 
         $item_datos_cursos = [];
         $item_datos_cursos =
@@ -81,7 +84,10 @@ class AlumnoController extends Controller{
             'gra_fch_ini' => $Grado->gra_fch_ini,
             'gra_fch_fin' => $Grado->gra_fch_fin,
             'gra_estado' => $Grado->gra_estado,
-            'cur_estado' => $Curso->cur_estado
+            'cur_estado' => $Curso->cur_estado,
+            'tema_nombre' => $Tema->tema_nombre,
+            'tema_descripcion' => $Tema->tema_descripcion,
+            'tema_es_cur_corto' => $Tema->tema_es_cur_corto
         ];// Fin array
         $datos_cursos = array_add($datos_cursos,$Curso->cur_id,$item_datos_cursos); //Agrego una coleccion de arrays
 

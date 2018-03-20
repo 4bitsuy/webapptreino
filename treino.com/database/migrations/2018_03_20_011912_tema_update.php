@@ -28,6 +28,8 @@ class TemaUpdate extends Migration
      */
     public function down()
     {
-        //
+      Schema::table('tema', function (Blueprint $table) {
+        $table->dropColumn(['tema_fch_ini', 'tema_fch_fin', 'asistencia']);
+      });
     }
 }
