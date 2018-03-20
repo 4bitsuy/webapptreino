@@ -3,7 +3,16 @@
 namespace App\Http\Controllers\Campus;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TemaStoreRequest;
+use App\Http\Requests\TemaUpdateRequest;
+
 use App\Http\Controllers\Controller;
+
+use App\Tema;
+use App\RelTemaModulo;
+use App\Modulo;
+use App\RelGraMod;
+use App\Grado;
 
 class TemaController extends Controller
 {
@@ -31,7 +40,7 @@ class TemaController extends Controller
      */
     public function create()
     {
-        //
+        return view('campus.temas.create');
     }
 
     /**
@@ -40,9 +49,22 @@ class TemaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TemaStoreRequest $request)
     {
-        //
+        $temas = Tema::create($request->all());
+
+        $modulos = $request->modulo;
+        if (isset($modulos)) {
+
+            for ($i=0; $i < count($modulos); $i++) {
+              $relTemaModulo = new RelTemaModulo(['modu_id' => $modulos[$i]]);
+
+              $temas->relTemaModulo()->save($relTemaModulo);
+            }
+        }
+
+        return redirect()->route('tema.edit', $temas->tema_id)
+              ->with('info', 'Tema creado con éxito');
     }
 
     /**
@@ -53,7 +75,9 @@ class TemaController extends Controller
      */
     public function show($id)
     {
-        //
+        $tema = Modulo::find($id);
+
+        return view('campus.temas.show', compact('tema'));
     }
 
     /**

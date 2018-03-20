@@ -27,7 +27,7 @@
                   @foreach ($temas as $tema)
                     <tr>
                       <td>{{ $tema->tema_nombre }}</td>
-                      <td>{{ $tema->tema_descripicion }}</td>
+                      <td>{{ $tema->tema_descripcion }}</td>
                       <td>
                         <a href="{{ route('tema.show', $tema->tema_id) }}">
                           <i class="fa fa-search" aria-hidden="true"></i>
