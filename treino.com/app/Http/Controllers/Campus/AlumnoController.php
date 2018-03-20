@@ -92,7 +92,8 @@ class AlumnoController extends Controller{
             'tema_descripcion' => $Tema->tema_descripcion,
             'tema_es_cur_corto' => $Tema->tema_es_cur_corto,
             'tema_fch_ini' => $Tema->tema_fch_ini,
-            'tema_fch_fin' => $Tema->tema_fch_fin
+            'tema_fch_fin' => $Tema->tema_fch_fin,
+            'porcentaje_curso' => $PorcentajeCurso
         ];// Fin array
         $datos_cursos = array_add($datos_cursos,$Curso->cur_id,$item_datos_cursos); //Agrego una coleccion de arrays
 
