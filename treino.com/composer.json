@@ -15,6 +15,7 @@
         "laravelcollective/html": "^5.4.0",
         "lavary/laravel-menu": "^1.7",
         "mbarwick83/instagram": "^1.11",
+        "nesbot/carbon": "^1.25",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/message": "^1.6",
         "vinkla/instagram": "^8.0"

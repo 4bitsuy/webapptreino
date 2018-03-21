@@ -12,6 +12,7 @@ use App\Persona;
 use App\Cursa;
 use App\Modulo;
 use App\Grado;
+use App\Tema;
 use App\RelTemaAlu;
 
 class AlumnoController extends Controller{
@@ -63,22 +64,39 @@ class AlumnoController extends Controller{
 
     $Cursos = Cursa::where('alu_id',$alu_id)->get();
     $TemaId = RelTemaAlu::where('alu_id',$alu_id)->pluck('tema_id')->first();
-    
+
     $datos_cursos = [];
 
     foreach ($Cursos as $Curso) {
         $Modulo = Modulo::where('modu_id',$Curso->modu_id)->first();
         $Grado  = Grado::where('gra_id',$Curso->gra_id)->first();
-        $Tema  = Tema::where('tema_id',$TemaId)->first();
-        
-        if ($Tema->tema_es_cur_corto){
-          $Fch_ini = $Tema->tema_fch_ini;
-          $Fch_fin = $Tema->tema_fch_fin;
-        }else{
-          $Fch_ini = $Grado->gra_fch_ini;
-          $Fch_fin = $Grado->gra_fch_fin;
-        }
-      
+        $Tema   = Tema::where('tema_id',$TemaId)->first();
+
+
+        $tema_nombre = '';
+        $tema_descripcion = '';
+        $tema_es_cur_corto = 'false';
+        $tema_fch_ini = '';
+        $tema_fch_fin = '';
+
+        $Fch_ini = $Grado->gra_fch_ini;
+        $Fch_fin = $Grado->gra_fch_fin;
+
+        if (isset($Tema)){
+
+          $tema_nombre        = $Tema->tema_nombre;
+          $tema_descripcion   = $Tema->tema_descripcion;
+          $tema_es_cur_corto  = $Tema->tema_es_cur_corto;
+          $tema_fch_ini       = $Tema->tema_fch_ini;
+          $tema_fch_fin       = $Tema->tema_fch_fin;
+
+          if ($Tema->tema_es_cur_corto == true){
+            $Fch_ini = $Tema->tema_fch_ini;
+            $Fch_fin = $Tema->tema_fch_fin;
+          }
+
+        }// FIN -isset($Tema)
+
         $PorcentajeCurso =  $this->getPorcentCurso($Fch_ini,$Fch_fin);
 
         $item_datos_cursos = [];
@@ -96,11 +114,11 @@ class AlumnoController extends Controller{
             'gra_fch_fin' => $Grado->gra_fch_fin,
             'gra_estado' => $Grado->gra_estado,
             'cur_estado' => $Curso->cur_estado,
-            'tema_nombre' => $Tema->tema_nombre,
-            'tema_descripcion' => $Tema->tema_descripcion,
-            'tema_es_cur_corto' => $Tema->tema_es_cur_corto,
-            'tema_fch_ini' => $Tema->tema_fch_ini,
-            'tema_fch_fin' => $Tema->tema_fch_fin,
+            'tema_nombre' => $tema_nombre,
+            'tema_descripcion' => $tema_descripcion,
+            'tema_es_cur_corto' => $tema_es_cur_corto,
+            'tema_fch_ini' => $tema_fch_ini,
+            'tema_fch_fin' => $tema_fch_fin,
             'porcentaje_curso' => $PorcentajeCurso
         ];// Fin array
         $datos_cursos = array_add($datos_cursos,$Curso->cur_id,$item_datos_cursos); //Agrego una coleccion de arrays
@@ -110,18 +128,27 @@ class AlumnoController extends Controller{
     return $datos_cursos;
 
   }//Fin Function getCursos
-  
-  
+
+
   private function getPorcentCurso($Fch_ini,$Fch_fin){
-    
+
+    $now = Carbon::now();
+    $Fch_ini = Carbon::createFromFormat('Y-m-d', $Fch_ini);
+    $Fch_fin = Carbon::createFromFormat('Y-m-d', $Fch_fin);
+    $PorcentajeCurso = 0;
+    $TotalDiasCurso = 0;
+    $DiasTranscurridos = 0;
+
     if (isset($Fch_ini) && isset($Fch_fin)){
-      $PorcentajeCurso = $Fch_ini->diffInDays($Fch_fin);
+      $TotalDiasCurso     = $Fch_ini->diffInDays($Fch_fin);
+      $DiasTranscurridos  = $Fch_ini->diffInDays($now);
+      $PorcentajeCurso    = intval(($DiasTranscurridos*100)/$TotalDiasCurso);
     }else{
       $PorcentajeCurso = 0;
     }
-    
+
     return $PorcentajeCurso;
 
   }//Fin Function getPorcentCurso
-  
+
 }
