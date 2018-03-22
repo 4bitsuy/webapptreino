@@ -72,29 +72,23 @@ class AlumnoController extends Controller{
         $Grado  = Grado::where('gra_id',$Curso->gra_id)->first();
         $Tema   = Tema::where('tema_id',$TemaId)->first();
 
-
-        $tema_nombre = '';
-        $tema_descripcion = '';
-        $tema_es_cur_corto = 'false';
-        $tema_fch_ini = '';
-        $tema_fch_fin = '';
-
-        $Fch_ini = $Grado->gra_fch_ini;
-        $Fch_fin = $Grado->gra_fch_fin;
+        $cur_id       = $Curso->cur_id;
+        $modu_id      = $Curso->modu_id;
+        $gra_id       = $Curso->gra_id;
+        $Titulo       = $Grado->gra_nro.'º - '.$Modulo->modu_nombre;
+        $Descripcion  = $Modulo->modu_descripcion;
+        $es_cur_corto = 'false';
+        $Fch_ini      = $Grado->gra_fch_ini;
+        $Fch_fin      = $Grado->gra_fch_fin;
 
         if (isset($Tema)){
-
-          $tema_nombre        = $Tema->tema_nombre;
-          $tema_descripcion   = $Tema->tema_descripcion;
-          $tema_es_cur_corto  = $Tema->tema_es_cur_corto;
-          $tema_fch_ini       = $Tema->tema_fch_ini;
-          $tema_fch_fin       = $Tema->tema_fch_fin;
-
-          if ($Tema->tema_es_cur_corto == true){
-            $Fch_ini = $Tema->tema_fch_ini;
-            $Fch_fin = $Tema->tema_fch_fin;
+          if ($Tema->tema_es_cur_corto){
+            $Titulo         = $Tema->tema_nombre;
+            $Descripcion    = $Tema->tema_descripcion;
+            $es_cur_corto   = $Tema->tema_es_cur_corto;
+            $Fch_ini        = $Tema->tema_fch_ini;
+            $Fch_fin        = $Tema->tema_fch_fin;
           }
-
         }// FIN -isset($Tema)
 
         $PorcentajeCurso =  $this->getPorcentCurso($Fch_ini,$Fch_fin);
@@ -102,6 +96,15 @@ class AlumnoController extends Controller{
         $item_datos_cursos = [];
         $item_datos_cursos =
         [
+          'cur_id' => $cur_id,
+          'modu_id' => $modu_id,
+          'gra_id' => $gra_id,
+          'titulo' => $Titulo,
+          'porcentaje_curso' => $PorcentajeCurso,
+          'descripcion' => $Descripcion,
+          'es_cur_corto' => $es_cur_corto
+        ];
+        /*[
             'modu_nombre' => $Modulo->modu_nombre,
             'modu_id' => $Curso->modu_id,
             'modu_descripcion' => $Modulo->modu_descripcion,
@@ -120,7 +123,7 @@ class AlumnoController extends Controller{
             'tema_fch_ini' => $tema_fch_ini,
             'tema_fch_fin' => $tema_fch_fin,
             'porcentaje_curso' => $PorcentajeCurso
-        ];// Fin array
+        ];*/  // Fin array
         $datos_cursos = array_add($datos_cursos,$Curso->cur_id,$item_datos_cursos); //Agrego una coleccion de arrays
 
     } //Fin foreach
@@ -150,5 +153,6 @@ class AlumnoController extends Controller{
     return $PorcentajeCurso;
 
   }//Fin Function getPorcentCurso
+
 
 }
