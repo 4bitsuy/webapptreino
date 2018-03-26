@@ -100,7 +100,7 @@ class AlumnoController extends Controller{
           'modu_id' => $modu_id,
           'gra_id' => $gra_id,
           'titulo' => $Titulo,
-          'porcentaje_curso' => $PorcentajeCurso.'%',
+          'porcentaje_curso' => $PorcentajeCurso,
           'descripcion' => $Descripcion,
           'es_cur_corto' => $es_cur_corto
         ];
@@ -145,9 +145,9 @@ class AlumnoController extends Controller{
     if (isset($Fch_ini) && isset($Fch_fin)){
       $TotalDiasCurso     = $Fch_ini->diffInDays($Fch_fin);
       $DiasTranscurridos  = $Fch_ini->diffInDays($now);
-      $PorcentajeCurso    = intval(($DiasTranscurridos*100)/$TotalDiasCurso);
+      $PorcentajeCurso    = ''.intval(($DiasTranscurridos*100)/$TotalDiasCurso).'%';
     }else{
-      $PorcentajeCurso = 0;
+      $PorcentajeCurso = '0'.'%';
     }
 
     return $PorcentajeCurso;
