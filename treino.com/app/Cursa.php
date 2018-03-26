@@ -8,7 +8,7 @@ class Cursa extends Model
 {
   protected $table = 'cursa';
   protected $primaryKey = 'cur_id';
-  protected $fillable = ['gra_id', 'modu_id', 'alu_id', 'cur_estado'];
+  protected $fillable = ['gra_id', 'modu_id', 'alu_id', 'cur_estado','cur_fch_ini', 'cur_fch_fin'];
 
 
   public function grado(){

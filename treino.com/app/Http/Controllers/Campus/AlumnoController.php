@@ -78,8 +78,8 @@ class AlumnoController extends Controller{
         $Titulo       = $Grado->gra_nro.'º - '.$Modulo->modu_nombre;
         $Descripcion  = $Modulo->modu_descripcion;
         $es_cur_corto = 'false';
-        $Fch_ini      = $Grado->gra_fch_ini;
-        $Fch_fin      = $Grado->gra_fch_fin;
+        $Fch_ini      = $Curso->cur_fch_ini;
+        $Fch_fin      = $Curso->cur_fch_fin;
 
         if (isset($Tema)){
           if ($Tema->tema_es_cur_corto){
@@ -100,7 +100,7 @@ class AlumnoController extends Controller{
           'modu_id' => $modu_id,
           'gra_id' => $gra_id,
           'titulo' => $Titulo,
-          'porcentaje_curso' => $PorcentajeCurso,
+          'porcentaje_curso' => $PorcentajeCurso.'%',
           'descripcion' => $Descripcion,
           'es_cur_corto' => $es_cur_corto
         ];
