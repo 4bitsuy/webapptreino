@@ -24,8 +24,8 @@ class GradoUpdateRequest extends FormRequest
     public function rules()
     {
       return [
-          'año' => 'required',
-          'dsc' => 'required',
+          'gra_nro' => 'required',
+          'gra_descripcion' => 'required',
       ];
     }
 }

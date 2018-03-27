@@ -22,6 +22,9 @@
                                   <div class="col-md-9">
                                     <p class="text-justify">{!! $value !!}</p>
                                   </div><!-- Fin col-md-9 -->
+                                  <div class="pull-right">
+                                    <a href="#" class="btn btn-sm btn-default "> ver curso</a>
+                                  </div>
                                 </div><!-- Fin panel-body -->
                           @endif
 

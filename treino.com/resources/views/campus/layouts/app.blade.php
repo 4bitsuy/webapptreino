@@ -74,6 +74,20 @@
                 </ul>
               </li>
             @endif
+
+            @if (Session::get('usuRol') == 'alumno')
+              <li>
+                <a href="#"><i class="fa fa-user fa-lg"></i> Perfil<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ route('campus.perfil', Session::get('usuName')) }}">Mi perfil</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('campus.cambioPass', Session::get('usuName')) }}">Cambiar contraseña</a>
+                    </li>
+                </ul>
+              </li>
+            @endif
           </ul>
         </div>
       </nav>

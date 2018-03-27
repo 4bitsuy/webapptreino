@@ -107,7 +107,7 @@ class GradoController extends Controller
 
         $grado->fill($request->all())->save();
 
-        return redirect()->route('grado.edit', $grado->id)
+        return redirect()->route('grado.edit', $id)
         ->with('info', 'Curso modificado con éxito');
     }
 
