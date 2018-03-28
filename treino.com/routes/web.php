@@ -44,9 +44,10 @@ Auth::routes();
 
 Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
 
+
   Route::get('/', [
-    'as' => 'home',
-    'uses' => 'CampusController@index'
+      'as' => 'campus.home',
+      'uses' => 'CampusController@index'
     ]);
   Route::get('{nick}/perfil', [
     'as'   => 'campus.perfil',
@@ -69,12 +70,12 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
     'as'    => 'alumno.principal',
     'uses'  => 'AlumnoController@index'
   ]);
-
-  Route::get('/persona', [
-    'as'    => 'persona.principal',
-    'uses'  => 'PersonaController@index'
+  Route::get('/docente', [
+    'as'    => 'docente.principal',
+    'uses'  => 'DocenteController@index'
   ]);
-
-
-
+  Route::get('/admin', [
+    'as'    => 'admin.principal',
+    'uses'  => 'AdminController@index'
+  ]);
 });

@@ -32,8 +32,18 @@ class CampusController extends Controller
       $rol = $this->getRolFromUser($this->getAuthUserId());
 
       $this->setSessionUser($usuario, $rol);
+      //Redirigir a una ruta
+      if ($rol->nombre == 'admin'){
+        return redirect()->route('admin.principal');
+      }
+      if ($rol->nombre == 'alumno'){
+        return redirect()->route('alumno.principal');
+      }
+      if ($rol->nombre == 'docente'){
+        return redirect()->route('docente.principal');
+      }
 
-      return view('campus.home');
+
     }
 
     private function getAuthUserId(){
