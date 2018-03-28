@@ -26,6 +26,7 @@ var fonts = {
 // css source file: .scss files
 var scss = {
     in: source + 'sass/app.scss',
+    inCampus: source + 'sass/campus.scss',
     out: dest + 'css/',
     watch: source + 'sass/**/*',
     sassOpts: {
@@ -58,6 +59,13 @@ gulp.task('sass', ['fonts'], function () {
         .pipe(gulp.dest(scss.out));
 });
 
+// compile scss
+gulp.task('sass-campus', ['fonts'], function () {
+    return gulp.src(scss.inCampus)
+        .pipe(sass(scss.sassOpts))
+        .pipe(gulp.dest(scss.out));
+});
+
 // compile js
 gulp.task('js', function () {
     gulp.src(javascript.in)
@@ -68,7 +76,8 @@ gulp.task('js', function () {
 });
 
 // default task
-gulp.task('default', ['sass','js'], function () {
+gulp.task('default', ['sass','js','sass-campus'], function () {
      gulp.watch(scss.watch, ['sass']);
+     gulp.watch(scss.watch, ['sass-campus']);
      gulp.watch(javascript.watch, ['js']);
 });
