@@ -49,6 +49,7 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
       'as' => 'campus.home',
       'uses' => 'CampusController@index'
     ]);
+
   Route::get('{nick}/perfil', [
     'as'   => 'campus.perfil',
     'uses' => 'UserController@perfil'
@@ -56,6 +57,10 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
   Route::get('{nick}/cambioPass', [
     'as'   => 'campus.cambioPass',
     'uses' => 'UserController@cambioPass'
+    ]);
+  Route::post('/cambioPass', [
+    'as'   => 'cambioPass',
+    'uses' => 'UserController@updatePassword'
     ]);
 
   // crud cursos.

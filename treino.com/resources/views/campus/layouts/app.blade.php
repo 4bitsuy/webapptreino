@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Treino - Campus') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/campus.css') }}" rel="stylesheet">
@@ -32,7 +32,7 @@
                         font-size: 16px;">
 
             <a href="{{ route('logout') }}" class="btn btn-danger square-btn-adjust" onclick="event.preventDefault();
-               document.getElementById('logout-form').submit();">Logout</a>
+               document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}
