@@ -104,26 +104,6 @@ class AlumnoController extends Controller{
           'descripcion' => $Descripcion,
           'es_cur_corto' => $es_cur_corto
         ];
-        /*[
-            'modu_nombre' => $Modulo->modu_nombre,
-            'modu_id' => $Curso->modu_id,
-            'modu_descripcion' => $Modulo->modu_descripcion,
-            'cur_id' => $Curso->cur_id,
-            'alu_id' => $Curso->alu_id,
-            'gra_id' => $Curso->gra_id,
-            'gra_nro' => $Grado->gra_nro,
-            'gra_descripcion' => $Grado->gra_descripcion,
-            'gra_fch_ini' => $Grado->gra_fch_ini,
-            'gra_fch_fin' => $Grado->gra_fch_fin,
-            'gra_estado' => $Grado->gra_estado,
-            'cur_estado' => $Curso->cur_estado,
-            'tema_nombre' => $tema_nombre,
-            'tema_descripcion' => $tema_descripcion,
-            'tema_es_cur_corto' => $tema_es_cur_corto,
-            'tema_fch_ini' => $tema_fch_ini,
-            'tema_fch_fin' => $tema_fch_fin,
-            'porcentaje_curso' => $PorcentajeCurso
-        ];*/  // Fin array
         $datos_cursos = array_add($datos_cursos,$Curso->cur_id,$item_datos_cursos); //Agrego una coleccion de arrays
 
     } //Fin foreach
