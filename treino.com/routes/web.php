@@ -75,10 +75,22 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
     'as'    => 'alumno.principal',
     'uses'  => 'AlumnoController@index'
   ]);
-  Route::get('/docente', [
-    'as'    => 'docente.principal',
-    'uses'  => 'DocenteController@index'
-  ]);
+
+  Route::group(['prefix' => 'docente'], function(){
+    Route::get('/', [
+      'as'    => 'docente.principal',
+      'uses'  => 'DocenteController@index'
+    ]);
+    Route::get('/lista', [
+      'as'    => 'docente.lista',
+      'uses'  => 'DocenteController@listas'
+    ]);
+    Route::post('/guardarLista', [
+      'as'    => 'docente.guardarLista',
+      'uses'  => 'DocenteController@guardarLista'
+    ]);
+  });
+
   Route::get('/admin', [
     'as'    => 'admin.principal',
     'uses'  => 'AdminController@index'
