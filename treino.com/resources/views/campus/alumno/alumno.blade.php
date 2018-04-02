@@ -9,9 +9,12 @@
               @foreach ($datos_cursos as $datos_curso)
                 <div class="col-md-6">
                   @foreach ($datos_curso as $key => $value)
+                    @if ($key == 'cur_id')
+                      <?php $id_curso = $value; ?>
+                    @endif
 
                           @if ($key == 'titulo')
-                            <div class="panel panel-default panel-default-dash">
+                            <div id="{!! $id_curso !!}" class="panel panel-default panel-default-dash ">
                               <div class="panel-heading dash-heading">{!! $value !!}</div> <!-- Fin panel-heading -->
                                 <div class="panel-body ">
                           @elseif ($key == 'porcentaje_curso')
@@ -23,7 +26,8 @@
                                     <p class="text-justify">{!! $value !!}</p>
                                   </div><!-- Fin col-md-9 -->
                                   <div class="pull-right">
-                                    <a href="#" class="btn btn-sm btn-default "> ver curso</a>
+                                    <a id="{!! $id_curso !!}" href="#" class="btn bttn-fill bttn-sm bttn-primary bttn-no-outline">Ver Curso</a>
+                                    <!--<button class="bttn-fill bttn-sm bttn-primary bttn-no-outline">Ver Curso</button> -->
                                   </div>
                                 </div><!-- Fin panel-body -->
                           @endif
