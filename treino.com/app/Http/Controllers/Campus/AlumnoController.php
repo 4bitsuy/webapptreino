@@ -46,7 +46,7 @@ class AlumnoController extends Controller{
     $alu_id = $this->getAlumno($Documento);
     $datos_cursos = $this->getCursos($alu_id);
     //dd($datos_cursos);
-    return view('campus.alumno.alumno', compact('datos_cursos'));
+    return view('campus.alumno.principal', compact('datos_cursos'));
 
   }
 

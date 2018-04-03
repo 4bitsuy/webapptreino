@@ -13,4 +13,8 @@ class Docente extends Model
     return $this->belongsTo('App\Persona','per_id');
   }
 
+  public function dicta(){
+    return $this->hasMany('App\Dicta','doc_id','doc_nro');
+  }
+
 }
