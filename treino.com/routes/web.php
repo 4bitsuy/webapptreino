@@ -70,11 +70,17 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
   // crud temas.
   Route::resource('/tema', 'TemaController');
 
+  Route::group(['prefix' => 'alumno'], function(){
+    Route::get('/', [
+      'as'    => 'alumno.principal',
+      'uses'  => 'AlumnoController@index'
+    ]);
+    Route::get('/curso/{id}', [
+      'as'    => 'alumno.curso',
+      'uses'  => 'AlumnoController@curso'
+    ]);
+  });
 
-  Route::get('/alumno', [
-    'as'    => 'alumno.principal',
-    'uses'  => 'AlumnoController@index'
-  ]);
 
   Route::group(['prefix' => 'docente'], function(){
     Route::get('/', [
