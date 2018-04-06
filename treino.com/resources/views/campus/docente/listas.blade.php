@@ -43,7 +43,6 @@
                         <td>{{ array_get($alumnoLista, 'aluCI') }}</td>
 
                         <td class="bg-success">{{ Form::checkbox('asiste[]', array_get($alumnoLista, 'alumnoId')) }}</td>
-                        <td class="bg-warning">{{ Form::checkbox('noAsiste[]', array_get($alumnoLista, 'alumnoId')) }}</td>
                         <td class="bg-danger">{{ Form::checkbox('noAsiste[]', array_get($alumnoLista, 'alumnoId')) }}</td>
                       </tr>
                     @endforeach

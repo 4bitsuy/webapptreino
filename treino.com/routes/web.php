@@ -89,11 +89,15 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
     ]);
     Route::get('/lista', [
       'as'    => 'docente.lista',
-      'uses'  => 'DocenteController@listas'
+      'uses'  => 'ListaController@listas'
+    ]);
+    Route::get('/lista/{idGrado}', [
+      'as'    => 'docente.verLista',
+      'uses'  => 'ListaController@verLista'
     ]);
     Route::post('/guardarLista', [
       'as'    => 'docente.guardarLista',
-      'uses'  => 'DocenteController@guardarLista'
+      'uses'  => 'ListaController@guardarLista'
     ]);
   });
 
