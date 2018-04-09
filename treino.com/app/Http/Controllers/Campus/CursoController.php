@@ -12,7 +12,7 @@ use App\Modulo;
 use App\Tema;
 use App\RelTemaModulo;
 use App\RelTemaAlu;
-
+use App\ArchivosFTP;
 
 
 class cursoController extends Controller
@@ -48,6 +48,7 @@ class cursoController extends Controller
     $cursoTemasId = RelTemaModulo::where('modu_id',$Cursa->modu_id)->pluck('tema_id');
     $TemaAlumno   = RelTemaAlu::where('alu_id',$Cursa->alu_id)->pluck('tema_id');
 
+
     //Titulo y descripcion del curso
     $curso_titulo = $Modulo->modu_nombre;
     $curso_descripcion =  $Modulo->modu_descripcion;
@@ -56,6 +57,7 @@ class cursoController extends Controller
 
   $i = 0;
   $ColTemasCurso = [];
+  $ColArchivos = [];
   foreach($TemaAlumno as $tema_id){
 
     //me quedo con los cursos que pertenezcan al modulo
@@ -66,9 +68,14 @@ class cursoController extends Controller
       }
     }
 
-    //Si el curso esta en el modulo
-    if ($EncontreTemaId > 0){
+    //Si el tema(puede ser curso corto) esta en el modulo
+    if ($EncontreTemaId == 1){
       $Tema = Tema::find($tema_id);
+      $archivos = ArchivosFTP::where('tema_id', $tema_id)->pluck('arch_ruta');
+      $itemArchivos = [
+        'tema_id' => $tema_id,
+        'archivos' => $archivos
+      ];
 
       if (($Tema->tema_es_cur_corto) && (count($cursoTemasId) == 1)){
         $curso_titulo         = $Tema->tema_nombre;
@@ -76,6 +83,8 @@ class cursoController extends Controller
       }
 
       $ColTemasCurso = array_add($ColTemasCurso, $i, $Tema);
+      $ColArchivos = array_add($ColArchivos, $i, $itemArchivos);
+
       $i++;
 
     }
@@ -85,7 +94,8 @@ class cursoController extends Controller
     $ContenidoCurso = [
       'Modulo_titulo'       => $curso_titulo,
       'Modulo_descripcion'  => $curso_descripcion,
-      'Modulo_Temas' => $ColTemasCurso
+      'Modulo_Temas' => $ColTemasCurso,
+      'Modulo_Archivos' => $ColArchivos
     ];//FIN - $ContenidoCurso
 
     return $ContenidoCurso;
