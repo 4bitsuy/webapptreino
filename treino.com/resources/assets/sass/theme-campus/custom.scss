@@ -426,3 +426,35 @@ p {
     border-radius: 0;
   }
 }
+
+
+/*==============================================
+    Panel Curso
+    =============================================*/
+#tit_curso{
+  color: #bf0811;
+  font-size: 4.5rem;
+  line-height:1.2;
+
+  }
+
+#subtit_curso{
+font-size: 1.8rem;
+  }
+
+.well-custom{
+  background: #a9cbe9;
+  border-color: #68a9f9;
+  width: 85%;
+}
+
+.linea-gradiente{
+  height: 2px;
+  background:linear-gradient(to right, rgba(232,229,232,0) 1%, rgba(191, 8, 17, 0.35) 10%, rgba(191, 8, 17, 0.9) 25%, rgb(191, 8, 17) 30%, rgba(191, 8, 17, 0.9) 75%, rgba(191, 8, 17, 0.35) 90%, rgba(232,229,232,0) 100%);
+
+}
+
+.img-curso-material{
+  height: 36px;
+  width: 40px;
+}
