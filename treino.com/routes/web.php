@@ -93,9 +93,9 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
       'as'    => 'docente.principal',
       'uses'  => 'DocenteController@index'
     ]);
-    Route::get('/lista', [
+    Route::get('/addlista/{idGrado}', [
       'as'    => 'docente.lista',
-      'uses'  => 'ListaController@listas'
+      'uses'  => 'ListaController@addListas'
     ]);
     Route::get('/lista/{idGrado}', [
       'as'    => 'docente.verLista',
