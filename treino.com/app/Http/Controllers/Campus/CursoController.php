@@ -17,6 +17,11 @@ use App\ArchivosFTP;
 
 class cursoController extends Controller
 {
+
+  public function __construct(){
+     $this->middleware('auth');
+  }
+
   /*=======================================
       Pagina del curso seleccionado
   =======================================*/

@@ -69,17 +69,24 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
   Route::resource('/modulo', 'ModuloController');
   // crud temas.
   Route::resource('/tema', 'TemaController');
+  // crud archivos.
+  Route::resource('/archivos', 'ArchivosFtpController');
+
 
   Route::group(['prefix' => 'alumno'], function(){
     Route::get('/', [
       'as'    => 'alumno.principal',
       'uses'  => 'AlumnoController@index'
     ]);
-    Route::get('/curso/{id}', [
-      'as'    => 'alumno.curso',
-      'uses'  => 'CursoController@index'
+    Route::get('/curso/{idCurso}', [
+      'as' => 'alumno.curso',
+      'uses' => 'CursoController@index'
     ]);
+
   });
+
+
+
 
   Route::group(['prefix' => 'docente'], function(){
     Route::get('/', [

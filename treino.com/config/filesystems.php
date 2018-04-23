@@ -50,7 +50,9 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            //'root' => storage_path('app/public'), //cometo RS
+            //'root' => public_path(),
+             'root' => env('APP_LOC'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],

@@ -16,4 +16,7 @@ class Tema extends Model
       return $this->hasMany('App\RelTemaModulo', 'tema_id', 'tema_id');
     }
 
+    public function ArchivosFTP(){
+      return $this->hasMany('App\RelTemaModulo', 'tema_id', 'tema_id');
+    }
 }
