@@ -12,7 +12,7 @@ class RelTemaAlu extends Model
   protected $fillable = ['tema_id', 'alu_id'];
 
   public function tema(){
-      return $this->belongsTo('App\Tema', 'tema_id');
+      return $this->belongsToMany('App\Tema', 'tema_id');
   }
 
   public function alumno(){

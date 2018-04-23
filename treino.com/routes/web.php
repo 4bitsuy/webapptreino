@@ -77,10 +77,9 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
     ]);
     Route::get('/curso/{id}', [
       'as'    => 'alumno.curso',
-      'uses'  => 'AlumnoController@curso'
+      'uses'  => 'CursoController@index'
     ]);
   });
-
 
   Route::group(['prefix' => 'docente'], function(){
     Route::get('/', [
@@ -104,5 +103,10 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
   Route::get('/admin', [
     'as'    => 'admin.principal',
     'uses'  => 'AdminController@index'
+  ]);
+
+  Route::get('/file/{nomArch}', [
+    'as' => 'descargar',
+    'uses' => 'ArchivosFtpController@descargar'
   ]);
 });

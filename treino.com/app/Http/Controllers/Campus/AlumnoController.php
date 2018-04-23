@@ -135,23 +135,6 @@ class AlumnoController extends Controller{
   }//Fin Function getPorcentCurso
 
 
-/*=======================================
-    Pagina del curso seleccionado
-=======================================*/
-  public function curso(Request $request,$id_curso){
-
-    $AuxRol = $request->session()->get('usuRol');
-
-    if ($AuxRol == 'alumno'){
-      # code...
-    }elseif ($AuxRol == 'docente') {
-      # code...
-    }else{
-        # code...
-    }
-
-    return view('campus.alumno.curso', compact(['id_curso' , 'AuxRol']));
-  }
 
 
 }
