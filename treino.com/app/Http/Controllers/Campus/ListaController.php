@@ -31,43 +31,31 @@ class ListaController extends Controller
 
 
   public function listas(){
+    $grados = Grado::get();
 
-    // verifico el rol del usuario.
-    $rol = session('usuRol');
-    // si es admin puede ver las listas de todos los cursos...
-    if ($rol == 'admin'){
+    return view('campus.admin.listas', compact(['grados']));
 
-      $grados = Grado::get();
+  }
 
-      return view('campus.admin.listas', compact(['grados']));
-    } else {
+  public function addListas($gradoId){
+    // supongo que es docente de "instructor en fitnes",
+    // para el modulo "Introducción a la práctica del fitness";
+    $grado = Grado::find($gradoId);
+    $modulo = Modulo::find(9);
+    $alumnosLista = $this->setListas(7, 9);
 
-      // supongo que es docente de "instructor en fitnes",
-      // para el modulo "Introducción a la práctica del fitness";
-      $grado = Grado::find(7);
-      $modulo = Modulo::find(9);
-      $alumnosLista = $this->setListas(7, 9);
-
-      return view('campus.docente.listas', compact(['grado', 'modulo', 'alumnosLista']));
-
-    }
+    return view('campus.docente.listas', compact(['grado', 'modulo', 'alumnosLista']));
   }
 
   public function verLista($gradoId){
     // ver modulos del grado
-    $relgramod = RelGraMod::where('gra_id', $gradoId)->pluck('modu_id');
+    //$relgramod = RelGraMod::where('gra_id', $gradoId)->pluck('modu_id');
     $grado = Grado::find($gradoId);
-    $modulos = [];
-    $i = 0;
-    foreach($relgramod as $modId){
-      $modulo = Modulo::find($modId);
 
-      $modulos = array_add($modulos, $i, $modulo);
-      $i++;
+    $listas = Lista::where('gra_id', $gradoId)
+              ->groupBy('lisfecha')->pluck('lisfecha');
 
-    }
-
-    return view('campus.admin.verListas', compact(['grado', 'modulos']));
+    return view('campus.admin.verListas', compact(['grado', 'listas']));
   }
 
 
