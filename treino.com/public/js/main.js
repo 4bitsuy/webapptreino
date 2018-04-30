@@ -1998,11 +1998,11 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     Authour URI: www.binarycart.com
     Version: 1.1
     License: MIT
-    
+
     http://opensource.org/licenses/MIT
 
     100% To use For Personal And Commercial Use.
-   
+
     ========================================================  */
 
 (function ($) {
@@ -2011,7 +2011,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         main_fun: function () {
             /*====================================
-            METIS MENU 
+            METIS MENU
             ======================================*/
             $('#main-menu').metisMenu();
 
@@ -2190,8 +2190,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 hideHover: 'auto',
                 resize: true
             });
-           
-     
+
         },
 
         initialization: function () {
@@ -2204,7 +2203,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     $(document).ready(function () {
         mainApp.main_fun();
+
     });
+
+                
 
 }(jQuery));
 

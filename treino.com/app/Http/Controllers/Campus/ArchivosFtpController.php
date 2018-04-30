@@ -19,8 +19,7 @@ class ArchivosFtpController extends Controller
 
     public function descargar($archivo){
       //PDF file is stored under project/public/download/info.pdf
-       $file= env('APP_LOC'). "/files/" .$archivo;
-      //$file= env('APP_LOC').$archivo;
+     $file= env('APP_LOC')."/file/".$archivo;
 
       $headers = [
                 'Content-Type' => 'application/pdf',
@@ -44,11 +43,19 @@ class ArchivosFtpController extends Controller
 
         //Archivos
         if ($request->file('arch_ruta')) {
+          //==============================================
           //lo siguiente significa:
           //Guarda el archivo ($request->file('arch_ruta')) en la carpeta 'files' en el storage publico
-           // $path = Storage::disk('public')->put('files', $request->file('arch_ruta'));
-            $path = Storage::disk('public')->put('files', $request->file('arch_ruta'));
-          $archivosFTP->fill(['arch_ruta' => $path])->save();
+          // $path = Storage::disk('public')->put('file', $file);
+          //==============================================
+          //==============================================
+          $file = $request->file('arch_ruta');
+          $name = 'trinoarch_'.time().'.'.$file->getClientOriginalExtension();
+          $path = env('APP_LOC')."/file/";
+          $file->move($path,$name);
+          
+          $archivosFTP->fill(['arch_ruta' => $name])->save();
+
         }
 
         // $modulos = $request->modulo;

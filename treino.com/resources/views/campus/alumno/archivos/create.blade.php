@@ -5,7 +5,7 @@
         <button type="button" name="btnClose" class="close" data-dismiss="modal">
           <span>&times;</span>
         </button>
-        <h4><strong>Agregar archivo a {{ $itemTema->tema_nombre }}</strong></h4>
+        <h4 class="modal-title"><strong>Agregar archivo a <span name="tema_nombre" class="modal-title"></span></strong></h4>
       </div>
       <div class="modal-body">
 

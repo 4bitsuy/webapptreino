@@ -3,11 +3,11 @@
     Authour URI: www.binarycart.com
     Version: 1.1
     License: MIT
-    
+
     http://opensource.org/licenses/MIT
 
     100% To use For Personal And Commercial Use.
-   
+
     ========================================================  */
 
 (function ($) {
@@ -16,7 +16,7 @@
 
         main_fun: function () {
             /*====================================
-            METIS MENU 
+            METIS MENU
             ======================================*/
             $('#main-menu').metisMenu();
 
@@ -195,8 +195,7 @@
                 hideHover: 'auto',
                 resize: true
             });
-           
-     
+
         },
 
         initialization: function () {
@@ -209,6 +208,9 @@
 
     $(document).ready(function () {
         mainApp.main_fun();
+
     });
+
+                
 
 }(jQuery));

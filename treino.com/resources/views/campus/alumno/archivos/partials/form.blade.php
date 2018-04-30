@@ -11,7 +11,8 @@
     {{ Form::file('arch_ruta') }}
   </div>
   <div class="col-md-6">
-    {{ Form::hidden('tema_id', $itemTema->tema_id) }}
+    {{-- hidden --}}
+    {{ Form::text('tema_id') }}
 
   </div>
 </div>

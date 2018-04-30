@@ -28,7 +28,6 @@ class cursoController extends Controller
     public function index(Request $request,$id_curso){
 
       $AuxRol = $request->session()->get('usuRol');
-
       if ($AuxRol == 'alumno'){
         $ColTemasCurso = $this->getContenidoCurso($id_curso);
 
@@ -76,7 +75,7 @@ class cursoController extends Controller
     //Si el tema(puede ser curso corto) esta en el modulo
     if ($EncontreTemaId == 1){
       $Tema = Tema::find($tema_id);
-      $archivos = ArchivosFTP::where('tema_id', $tema_id)->pluck('arch_ruta');
+      $archivos = ArchivosFTP::where('tema_id', $tema_id)->get();//pluck('arch_ruta');
       $itemArchivos = [
         'tema_id' => $tema_id,
         'archivos' => $archivos
