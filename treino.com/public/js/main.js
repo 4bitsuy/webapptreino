@@ -2004,6 +2004,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     100% To use For Personal And Commercial Use.
 
     ========================================================  */
+//RS - para modal - input file
+    $('#arch_ruta').on('change',function(){
+      $('#inputval').text( $(this).val());
+    });
 
 (function ($) {
     "use strict";
@@ -2206,7 +2210,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     });
 
-                
+
 
 }(jQuery));
 

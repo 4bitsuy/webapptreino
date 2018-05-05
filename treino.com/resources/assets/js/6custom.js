@@ -9,6 +9,10 @@
     100% To use For Personal And Commercial Use.
 
     ========================================================  */
+//RS - para modal - input file
+    $('#arch_ruta').on('change',function(){
+      $('#inputval').text( $(this).val());
+    });
 
 (function ($) {
     "use strict";
@@ -211,6 +215,6 @@
 
     });
 
-                
+
 
 }(jQuery));
