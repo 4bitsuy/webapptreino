@@ -10,9 +10,9 @@
 
     ========================================================  */
 //RS - para modal - input file
-    $('#arch_ruta').on('change',function(){
-      $('#inputval').text( $(this).val());
-    });
+$('#arch_ruta').on('change',function(){
+    $('#inputval').text( $(this).val());
+});
 
 (function ($) {
     "use strict";

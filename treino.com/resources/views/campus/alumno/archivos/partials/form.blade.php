@@ -41,5 +41,6 @@
 <div class="col-md-12"></br></div>
 <div style="clear:both"></div>
 <div class="modal-footer">
-  {{ Form::submit('Guardar', ['class' => 'btn bttn-fill bttn-sm bttn-primary bttn-no-outline']) }}
+  <label for='Guardar-arch' class='btn bttn-fill bttn-sm bttn-primary bttn-no-outline'>Guardar</label>
+    {{ Form::submit('', ['class' => 'upload', 'id' => 'Guardar-arch']) }}
 </div>

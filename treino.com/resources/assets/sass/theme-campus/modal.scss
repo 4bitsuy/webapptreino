@@ -6,17 +6,17 @@
     padding: 15px 0 0;
 
     .cerrar {
-      width: 85px;
-      height: 85px;
-      background: #142a39;
+      width: 70px;
+      height: 70px;
+      background: #131315;//#142a39;
       border-radius: 50%;
       float: left;
       @include media(xxs) {
         margin-left: 0;
-        margin-top: -15px;
+        margin-top: -25px;
       }
       @include media(sm) {
-        margin-left: -55px;
+        margin-left: -35px;
       }
 
       .close {
@@ -24,9 +24,9 @@
         color: $red-color;
         opacity: 1;
         text-shadow: none;
-        margin-top: 37px!important;
-        margin-left: 15px;
-        font-size: 12px;
+        margin-top: 19px!important;
+        margin-left: 25px;
+        font-size: 35px;
       }
     }
   }
