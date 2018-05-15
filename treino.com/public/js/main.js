@@ -2514,7 +2514,8 @@ function pie(linea){
   html += '  <p>COSTO MENSUAL: $' + limpio(costo[1].substring(0, costo[1].length-1)) + '</p>';
   html += '</div>';
   html += '<div class="col-lg-6 pieRight">';
-  html += '  <p><a href="#">DESCARGAR PROGRAMA</a></p>';
+  // html += '  <p><a href="'+ route('descargarPrograma', 'instructorFitness.pdf') +'">DESCARGAR PROGRAMA</a></p>';
+  // html += '  <p><a href="'+'http://localhost:8081/webapptreino/treino.com/programa/instructorFitness.pdf'+'">222DESCARGAR PROGRAMA</a></p>';
   html += '</div>';
 
   return html;

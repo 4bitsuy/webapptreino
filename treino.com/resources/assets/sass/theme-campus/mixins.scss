@@ -1,0 +1,43 @@
+@mixin nav() {
+  background: url($img-navbar) repeat-x $brand-blue;
+  min-height: 100px;
+  border-color: $red-color!important;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 3px solid;
+  border-radius: 0;
+  .navbar-brand{
+    height: 100px;
+    img{
+      max-width: 250px;
+      max-height: 60px;
+    }
+  }
+}
+
+// ==========  Mixins para los Media Queries  ==========
+@mixin media($consulta) {
+
+  $media-xxs:"(min-width: 320px)"; // iPhone Retina
+  $media-xs: "(min-width: 480px)"; // Telefonos
+  $media-sm: "(min-width: 768px)";  // Tablets
+  $media-md: "(min-width: 992px)"; // Escritorios
+  $media-lg: "(min-width: 1200px)"; // Resoluciones grandes
+
+  @if $consulta == xxs {
+    @media #{$media-xxs} { @content; }
+  }
+  @if $consulta == xs {
+    @media #{$media-xs} { @content; }
+  }
+  @else if $consulta == sm {
+    @media #{$media-sm} { @content; }
+  }
+  @else if $consulta == md {
+    @media #{$media-md}  { @content; }
+  }
+  @else if $consulta == lg {
+    @media #{$media-lg}  { @content; }
+  }
+}

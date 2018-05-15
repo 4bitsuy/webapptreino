@@ -20,7 +20,7 @@ class ContactoController extends Controller
     $this->validate($request, [
       'email'    => 'required|email',
       'telefono' => 'required',
-      'mensaje'  => 'required|min:10'
+      'mensaje'  => 'required'
     ]);
 
     $data = array(
@@ -44,7 +44,7 @@ class ContactoController extends Controller
     $this->validate($request, [
       'email'    => 'required|email',
       'telefono' => 'required',
-      'mensaje'  => 'required|min:10',
+      'mensaje'  => 'required',
       'curso'    => 'required'
     ]);
 
@@ -70,7 +70,7 @@ class ContactoController extends Controller
     $this->validate($request, [
       'email'    => 'required|email',
       'telefono' => 'required',
-      'mensaje'  => 'required|min:10',
+      'mensaje'  => 'required',
       'curso'    => 'required'
     ]);
 

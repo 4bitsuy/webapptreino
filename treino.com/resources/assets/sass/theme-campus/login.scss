@@ -1,0 +1,64 @@
+
+body.inicio{
+  background: url($source-img+"bg-one.jpg") left center;
+  background-size: cover;
+  background-position: center;
+  margin-top: 0px;
+  padding-top: 23px;
+  @include media(sm){
+    background-position: right center
+  }
+  h3,p,ul{
+    max-width: 480px;
+    color: $white-color;
+    padding: 18px 0;
+    span{
+      color: $red-color;
+    }
+  }
+  p{
+    text-align: justify;
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    li{
+      line-height: 20px;
+      text-shadow: 0 0 10px #000;
+      span{
+        color: $red-color;
+        font-size: 10px;
+        margin-right: 13px;
+      }
+    }
+  }
+  img.icono-home{
+    padding-top: 20px;
+    position: absolute;
+    max-width: 100px;
+    @include media(xxs){
+      max-width: 70px;
+    }
+  }
+  .cont-home{
+    margin-left: 125px;
+    margin-bottom: 40px;
+    h5{
+      color: $red-color;
+      font-weight: $font-sans-bold;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+    @include media(xxs){
+      margin-left: 90px;
+      font-size: 11px;
+    }
+    @include media(xs){
+      font-size: 13px;
+    }
+    @include media(sm){
+      font-size: 15px;
+    }
+  }
+}

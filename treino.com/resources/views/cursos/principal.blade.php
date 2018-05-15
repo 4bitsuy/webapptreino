@@ -8,7 +8,7 @@
       @foreach ($cursos as $curso)
         @foreach ($curso as $key => $value)
           @if ($key == 'id')
-            <div class="col-xs-6 col-lg-3 fondo-curso" id="{!! $value !!}">
+            <div class="col-xs-6 col-lg-3-treino fondo-curso" id="{!! $value !!}">
               <div class="background-curso">
 
               </div>

@@ -8,6 +8,43 @@
     100% To use For Personal And Commercial Use.
 
     ========================================================  */
+
+
+
+// Variables
+@import "variables";
+@import "mixins";
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto+Condensed:300,700|Anton|Courgette');
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(#{$icon-font-path}#{$icon-font-name}.ttf) format('truetype');
+  src: url(#{$icon-font-path}#{$icon-font-name}.eot?#iefix)
+  format('embedded-opentype'),
+  url(#{$icon-font-path}#{$icon-font-name}.woff) format('woff'),
+  url(#{$icon-font-path}#{$icon-font-name}.ttf) , format('truetype'),
+  url(#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id})
+  format('svg');
+}
+
+// framework
+@import "jquery-ui";
+@import "bootstrap";
+
+// slider
+@import "slick";
+@import "slick-theme";
+
+// iconos
+@import "font-awesome/font-awesome";
+
+
+
+
+
+
+
 /*==============================================
     GENERAL  STYLES
     =============================================*/
@@ -65,12 +102,19 @@ p {
 }
 
 
+
 /*==============================================
    buttons STYLES
     =============================================*/
 
     @import "btn-campus";
 
+
+/*==============================================
+   BOX DASHBOARD STYLES
+    =============================================*/
+
+    @import "login";
 
 
 /*==============================================

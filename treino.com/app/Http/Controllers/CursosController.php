@@ -60,7 +60,7 @@ class CursosController extends Controller
       "Costo" => "3300"
     ]
     ***/
-
+// {{ route('descargar', $archivo->arch_ruta) }}
     $valor = Page::slug($request->curso)->first()->content;
     $unformatCurso = explode("\r\n",$valor);
 

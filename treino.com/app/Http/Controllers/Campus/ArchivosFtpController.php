@@ -28,6 +28,17 @@ class ArchivosFtpController extends Controller
       return response()->download($file, $archivo, $headers);
     }
 
+    public function descargarPrograma($archivo){
+      //PDF file is stored under project/public/download/info.pdf
+     $file= env('APP_LOC')."/programa/".$archivo;
+
+      $headers = [
+                'Content-Type' => 'application/pdf',
+             ];
+
+      return response()->download($file, $archivo, $headers);
+    }
+
 
 
 
@@ -53,7 +64,7 @@ class ArchivosFtpController extends Controller
           $name = 'trinoarch_'.time().'.'.$file->getClientOriginalExtension();
           $path = env('APP_LOC')."/file/";
           $file->move($path,$name);
-          
+
           $archivosFTP->fill(['arch_ruta' => $name])->save();
 
         }

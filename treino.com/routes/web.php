@@ -24,6 +24,11 @@ Route::get('cursos', [
 ]);
 Route::post('cursos', 'CursosController@getInfoCurso');
 
+Route::get('/programa/{nomArch}', [
+  'as' => 'descargarPrograma',
+  'uses' => 'ArchivosFtpController@descargarPrograma'
+]);
+
 // Formularios
 Route::post('contacto', 'ContactoController@enviarCorreo');
 Route::post('inscripcion', 'ContactoController@enviarCorreoInscripcion');
