@@ -13,7 +13,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/campus.css') }}" rel="stylesheet">
 </head>
-<body>
+@auth
+  <body>
+@else
+  <body class="inicio">
+@endauth
+
 <div id="app" class="campus">
   @auth
     <div id="wrapper">
@@ -27,16 +32,16 @@
                 </button>
                 <a class="navbar-brand" href="{{ url('/campus') }}">{{ config('app.name', 'Campus') }}</a>
             </div>
-            <div style="color: white; padding: 15px 50px 5px 50px;
-                        float: right;
-                        font-size: 16px;">
 
-            <a href="{{ route('logout') }}" class="btn btn-danger square-btn-adjust" onclick="event.preventDefault();
+            <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+
+              <a href="{{ route('logout') }}" class="btn btn-danger square-btn-adjust" onclick="event.preventDefault();
                document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              {{ csrf_field() }}
-            </form>
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                 {{ csrf_field() }}
+               </form>
+
         </nav>
 
         {{-- NAV TOP --}}
@@ -149,13 +154,15 @@
   @endif
   @yield('content')
 </div>
+@auth
+  <!-- Scripts -->
+  <script src="{{ URL::asset('js/main.js') }}" charset="utf-8"></script>
+  <script src="{{ URL::asset('js/excanvas.js') }}" charset="utf-8"></script>
+  <script src="{{ URL::asset('js/jquery.knob.min.js') }}" charset="utf-8"></script>
+  <script src="{{ URL::asset('js/knoob.custom.js') }}" charset="utf-8"></script>
+  @yield('scripts')
+  @yield('script_curso_modal')
+@endauth
 
-    <!-- Scripts -->
-    <script src="{{ URL::asset('js/main.js') }}" charset="utf-8"></script>
-    <script src="{{ URL::asset('js/excanvas.js') }}" charset="utf-8"></script>
-    <script src="{{ URL::asset('js/jquery.knob.min.js') }}" charset="utf-8"></script>
-    <script src="{{ URL::asset('js/knoob.custom.js') }}" charset="utf-8"></script>
-    @yield('scripts')
-    @yield('script_curso_modal')
 </body>
 </html>
