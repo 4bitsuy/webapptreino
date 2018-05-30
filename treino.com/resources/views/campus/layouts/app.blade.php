@@ -15,11 +15,12 @@
 </head>
 @auth
   <body>
+  <div id="app" class="campus">
 @else
-  <body class="inicio">
+  <body >
+  <div id="app" class="inicio">
 @endauth
 
-<div id="app" class="campus">
   @auth
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
