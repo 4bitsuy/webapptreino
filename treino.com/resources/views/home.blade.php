@@ -71,17 +71,20 @@
       <h3>NUESTRO STAFF</h3>
       <h5>Contamos con un equipo de reconocidos docentes</h5>
 
-      @for ($i = 1; $i <= 3; $i++)
-        <div class="col-sm-4">
-          <div class="one-person">
-            {!! array_get($staffData, 'staff_'.$i.'.contenido') !!}
+      <div id='staff-slide'>
+        @for ($i = 1; $i <= 4; $i++)
+          <div class="col-sm-4">
+            <div class="one-person">
+              {!! array_get($staffData, 'staff_'.$i.'.contenido') !!}
+            </div>
+            <h6>
+              <span>{!!array_get($staffData, 'staff_'.$i.'.nombre') !!}</span> - {!!array_get($staffData, 'staff_'.$i.'.puesto') !!}
+              <!--<img src="images/staff_{{$i}}.jpg" alt="" class="img-responsive img-staff">-->
+            </h6>
           </div>
-          <h6>
-            <span>{!!array_get($staffData, 'staff_'.$i.'.nombre') !!}</span> - {!!array_get($staffData, 'staff_'.$i.'.puesto') !!}
-            <img src="images/staff_{{$i}}.jpg" alt="" class="img-responsive img-staff">
-          </h6>
-        </div>
-      @endfor
+        @endfor
+      </div>
+
     </div>
   </div>
 </div>
@@ -104,7 +107,6 @@
         @foreach ($instas as $insta)
           <div class="insta-post">
             <img src="{{$insta->images->low_resolution->url}}" alt="" class="img-responsive">
-            {{-- dd($insta) --}}
             <i class="fa fa-heart" aria-hidden="true"></i> <span>{{ $insta->likes->count }}</span>
             <i class="fa fa-comment" aria-hidden="true"></i> <span>{{ $insta->comments->count }}</span>
             <div class="insta-info-post">
@@ -137,4 +139,42 @@
     </div>
 
     @include('contacto.form-inscripciones')
+@endsection
+
+@section('scripts')
+  <script type="text/javascript">
+    $("#staff-slide").slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          adaptiveHeight: true,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+    });
+  </script>
 @endsection

@@ -1,4 +1,7 @@
 div.staff{
+  .slick-slide{
+    height: auto!important;
+  }
   @include media(xxs){
     padding-bottom: 20px;
   }
@@ -25,8 +28,7 @@ div.staff{
     background: $red-color;
     transition: .3 all;
     @include media(xxs){
-      margin: 0 -30px;
-      padding: 20px;
+      padding: 12px;
     }
     @include media(sm){
       margin: 0 -9px;
@@ -85,7 +87,7 @@ div.staff{
       @include media(md){
         max-width: 140px;
         border: 5px solid;
-        bottom: -40px;
+        bottom: 40px;
         right: 35px;
       }
     }
