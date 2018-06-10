@@ -28,18 +28,17 @@ class cursoController extends Controller
     public function index(Request $request,$id_curso){
 
       $AuxRol = $request->session()->get('usuRol');
-      if ($AuxRol == 'alumno'){
-        $ColTemasCurso = $this->getContenidoCurso($id_curso);
 
+      $ColTemasCurso = $this->getContenidoCurso($id_curso);
+/*      
+      if ($AuxRol == 'alumno'){
       }elseif ($AuxRol == 'docente') {
         # code...
-
       }else{
           # code...
-
       } //FIN IF ($AuxRol == 'alumno')
-
-      return view('campus.alumno.curso', compact(['ColTemasCurso']));
+*/
+      return view('campus.cursos.curso', compact(['ColTemasCurso']));
 
     } //FIN - index
 
