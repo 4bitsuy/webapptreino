@@ -79,9 +79,6 @@
                     </li>
                 </ul>
               </li>
-              <li>
-                  <a href="{{ route('docente.lista') }}"><i class="fa fa-users fa-lg"></i> Listas</a>
-              </li>
             @endif
 
             @if (Session::get('usuRol') == 'alumno')

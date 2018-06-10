@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AltaTblArchivosFTP extends Migration
+class AltaTblArchivosFTP_2 extends Migration
 {
     /**
      * Run the migrations.
