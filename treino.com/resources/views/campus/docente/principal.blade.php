@@ -26,7 +26,7 @@
                                     <p class="text-justify">{!! $value !!}</p>
                                   </div><!-- Fin col-md-9 -->
                                   <div class="pull-right">
-                                    <a id="{!! $id_curso !!}" href="#" class="btn bttn-fill bttn-sm bttn-primary bttn-no-outline">Ver Curso</a>
+                                    <a id="{!! $id_curso !!}" href="{{route('cursos.curso',$id_curso)}}" class="btn bttn-fill bttn-sm bttn-primary bttn-no-outline">Ver Curso</a>
                                     <!--<button class="bttn-fill bttn-sm bttn-primary bttn-no-outline">Ver Curso</button> -->
                                   </div>
                                 </div><!-- Fin panel-body -->

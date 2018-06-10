@@ -84,7 +84,7 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
       'uses'  => 'AlumnoController@index'
     ]);
     Route::get('/curso/{idCurso}', [
-      'as' => 'alumno.curso',
+      'as' => 'cursos.curso',
       'uses' => 'CursoController@index'
     ]);
 
