@@ -110,6 +110,11 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
       'as'    => 'docente.guardarLista',
       'uses'  => 'ListaController@guardarLista'
     ]);
+    
+    Route::get('/curso/{idCurso}', [
+      'as' => 'cursos.curso',
+      'uses' => 'CursoController@index'
+    ]);
   });
 
   Route::get('/admin', [
