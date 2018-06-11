@@ -39,6 +39,7 @@ class DocenteController extends Controller
     //$Documento = '50640349'; //documento temporal par no tener que loguear
     $doc_id = $this->getDocente($Documento);
     $datos_cursos = $this->getCursos($doc_id);
+    
     //dd($datos_cursos);
     return view('campus.docente.principal', compact('datos_cursos'));
 

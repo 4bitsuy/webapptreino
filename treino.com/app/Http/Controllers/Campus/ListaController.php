@@ -37,12 +37,12 @@ class ListaController extends Controller
 
   }
 
-  public function addListas($gradoId){
+  public function addListas($gradoId,$moduloId){
     // supongo que es docente de "instructor en fitnes",
     // para el modulo "Introducción a la práctica del fitness";
     $grado = Grado::find($gradoId);
-    $modulo = Modulo::find(9);
-    $alumnosLista = $this->setListas(7, 9);
+    $modulo = Modulo::find($moduloId);
+    $alumnosLista = $this->setListas($gradoId, $moduloId);
 
     return view('campus.docente.listas', compact(['grado', 'modulo', 'alumnosLista']));
   }
