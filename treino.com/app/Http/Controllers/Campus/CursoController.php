@@ -43,6 +43,7 @@ class cursoController extends Controller
 */
       return view('campus.cursos.curso', compact(['ColTemasCurso','idGrado','idModulo']));
 
+
     } //FIN - index
 
   private function getIdGrado($id_curso){
