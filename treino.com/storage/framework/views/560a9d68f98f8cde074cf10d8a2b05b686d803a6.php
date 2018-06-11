@@ -80,9 +80,6 @@
                     </li>
                 </ul>
               </li>
-              <li>
-                  <a href="<?php echo e(route('docente.lista')); ?>"><i class="fa fa-users fa-lg"></i> Listas</a>
-              </li>
             <?php endif; ?>
 
             <?php if(Session::get('usuRol') == 'alumno'): ?>
@@ -111,9 +108,6 @@
                     </li>
                     <li>
                         <a href="<?php echo e(route('campus.perfil', Session::get('usuName'))); ?>">Mi perfil</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo e(route('docente.lista', Session::get('usuName'))); ?>">Pasar Lista</a>
                     </li>
                     <li>
                         <a href="<?php echo e(route('campus.cambioPass', Session::get('usuName'))); ?>">Cambiar contraseña</a>

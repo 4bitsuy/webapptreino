@@ -30,8 +30,8 @@ class cursoController extends Controller
       $AuxRol = $request->session()->get('usuRol');
 
       //$ColTemasCurso = $this->getContenidoCurso($id_curso);
-      $idGrado = $this->getIdGrado($id_curso);
-      $idModulo = $this->getIdModulo($id_curso);
+      $idGrado = $this->getIdGrado($id_curso,$AuxRol);
+      $idModulo = $this->getIdModulo($id_curso,$AuxRol);
       $ColTemasCurso = $this->getContenidoCurso($idGrado,$idModulo);
 /*
       if ($AuxRol == 'alumno'){
@@ -46,11 +46,24 @@ class cursoController extends Controller
 
     } //FIN - index
 
-  private function getIdGrado($id_curso){
-    return Dicta::where('dicta_id',$id_curso)->pluck('gra_id')->first();
+  private function getIdGrado($id_curso,$AuxRol){
+    if ($AuxRol == 'alumno'){
+      return Cursa::where('cur_id',$id_curso)->pluck('modu_id')->first();
+    }elseif ($AuxRol == 'docente') {
+      return Dicta::where('dicta_id',$id_curso)->pluck('gra_id')->first();
+    }else{
+        # code...
+    } //FIN IF ($AuxRol == 'alumno')
   }
-  private function getIdModulo($id_curso){
-    return Dicta::where('dicta_id',$id_curso)->pluck('modu_id')->first();
+
+  private function getIdModulo($id_curso,$AuxRol){
+    if ($AuxRol == 'alumno'){
+      return Cursa::where('cur_id',$id_curso)->pluck('modu_id')->first();
+    }elseif ($AuxRol == 'docente') {
+      return Dicta::where('dicta_id',$id_curso)->pluck('modu_id')->first();
+    }else{
+        # code...
+    } //FIN IF ($AuxRol == 'alumno')
   }
   private function getContenidoCurso($idGrado,$idModulo){
 
