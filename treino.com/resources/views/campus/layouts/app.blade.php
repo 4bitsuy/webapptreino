@@ -156,7 +156,6 @@
   <script src="{{ URL::asset('js/jquery.knob.min.js') }}" charset="utf-8"></script>
   <script src="{{ URL::asset('js/knoob.custom.js') }}" charset="utf-8"></script>
   @yield('scripts')
-  @yield('script_curso_modal')
 @endauth
 
 </body>

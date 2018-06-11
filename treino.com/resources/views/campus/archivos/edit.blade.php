@@ -12,7 +12,7 @@
         <div class="panel-body form-wrap">
           {!! Form::model($post, ['route' => 'archivosftp.update', $post->id], 'method' => 'PUT', 'files' => true]) !!}
 
-            @include('campus.alumno.archivos.partials.form')
+            @include('campus.archivos.partials.form')
 
           {!! Form::close() !!}
         </div>

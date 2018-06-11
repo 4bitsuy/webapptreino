@@ -79,7 +79,7 @@ class ArchivosFtpController extends Controller
         //     }
         // }
         //
-        return redirect()->route('alumno.curso', 1/*$archivosFTP->arch_id*/)
+        return redirect()->route('cursos.curso', 1/*$archivosFTP->arch_id*/)
               ->with('info', 'Archivo subido con éxito');
     }
 

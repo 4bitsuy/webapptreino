@@ -8,27 +8,27 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        {{-- <button type="button" name="btnClose" class="close" data-dismiss="modal" >
-          <span>&times;</span>
-        </button> --}}
+        
       </div>
       <div class="modal-body">
 
-        <h3>Agregar archivo a <span name="tema_nombre" class="modal-title"></span></h3>
+        <h3>Agregar archivo a "<span id="tema_nombre" class="modal-title"></span>"</h3>
 
         <div class="panel-body form-wrap">
-          {!! Form::open(['route' => 'archivos.store', 'files' => true]) !!}
+          <?php echo Form::open(['route' => 'archivos.store', 'files' => true]); ?>
 
-            @include('campus.alumno.archivos.partials.form')
 
-          {!! Form::close() !!}
+            <?php echo $__env->make('campus.archivos.partials.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+          <?php echo Form::close(); ?>
+
         </div>
 
 
 
-      {{-- <div class="modal-footer"> --}}
-        {{-- <input type="submit" clase="btn btn-primary" value="Guardar"> --}}
-      {{-- </div> --}}
+      
+        
+      
     </div>
 
   </div>
