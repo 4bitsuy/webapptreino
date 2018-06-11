@@ -65,7 +65,7 @@ class DocenteController extends Controller
         $Grado  = Grado::where('gra_id',$Curso->gra_id)->first();
         $Tema   = Tema::where('tema_id',$TemaId)->first();
 
-        $dicta_id       = $Curso->dicta_id;
+        $dicta_id     = $Curso->dicta_id;
         $modu_id      = $Curso->modu_id;
         $gra_id       = $Curso->gra_id;
         $Titulo       = $Grado->gra_nro.'º - '.$Modulo->modu_nombre;
