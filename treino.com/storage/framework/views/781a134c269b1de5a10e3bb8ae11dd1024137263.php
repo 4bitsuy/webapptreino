@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="<?php echo e(app()->getLocale()); ?>">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>{{ config('app.name', 'Treino - Campus') }}</title>
+    <title><?php echo e(config('app.name', 'Treino - Campus')); ?></title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/campus.css') }}" rel="stylesheet">
+    <link href="<?php echo e(asset('css/campus.css')); ?>" rel="stylesheet">
 </head>
-@auth
+<?php if(auth()->guard()->check()): ?>
   <body>
   <div id="app" class="campus">
-@else
+<?php else: ?>
   <body >
   <div id="app" class="inicio">
-@endauth
+<?php endif; ?>
 
-  @auth
+  <?php if(auth()->guard()->check()): ?>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -31,21 +31,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/campus') }}">{{ config('app.name', 'Campus') }}</a>
+                <a class="navbar-brand" href="<?php echo e(url('/campus')); ?>"><?php echo e(config('app.name', 'Campus')); ?></a>
             </div>
 
             <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
 
-              <a href="{{ route('logout') }}" class="btn btn-danger square-btn-adjust" onclick="event.preventDefault();
+              <a href="<?php echo e(route('logout')); ?>" class="btn btn-danger square-btn-adjust" onclick="event.preventDefault();
                document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 
-               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                 {{ csrf_field() }}
+               <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                 <?php echo e(csrf_field()); ?>
+
                </form>
 
         </nav>
 
-        {{-- NAV TOP --}}
+        
         <nav class="navbar-default navbar-side" role="navigation">
           <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
@@ -53,15 +54,15 @@
                 <img src="" class="user-image img-responsive"/>
               </li>
 
-            @if (Session::get('usuRol') == 'admin')
+            <?php if(Session::get('usuRol') == 'admin'): ?>
               <li>
                 <a href="#"><i class="fa fa-user fa-lg"></i> Perfil<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('campus.perfil', Session::get('usuName')) }}">Mi perfil</a>
+                        <a href="<?php echo e(route('campus.perfil', Session::get('usuName'))); ?>">Mi perfil</a>
                     </li>
                     <li>
-                        <a href="{{ route('campus.cambioPass', Session::get('usuName')) }}">Cambiar contraseña</a>
+                        <a href="<?php echo e(route('campus.cambioPass', Session::get('usuName'))); ?>">Cambiar contraseña</a>
                     </li>
                 </ul>
               </li>
@@ -69,95 +70,97 @@
                 <a href=""><i class="fa fa-graduation-cap fa-lg"></i> Cursos<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('grado.index') }}">Trabajar con cursos</a>
+                        <a href="<?php echo e(route('grado.index')); ?>">Trabajar con cursos</a>
                     </li>
                     <li>
-                        <a href="{{ route('modulo.index') }}">Trabajar con módulos</a>
+                        <a href="<?php echo e(route('modulo.index')); ?>">Trabajar con módulos</a>
                     </li>
                     <li>
-                        <a href="{{ route('tema.index') }}">Trabajar con temas</a>
+                        <a href="<?php echo e(route('tema.index')); ?>">Trabajar con temas</a>
                     </li>
                 </ul>
               </li>
-            @endif
+            <?php endif; ?>
 
-            @if (Session::get('usuRol') == 'alumno')
+            <?php if(Session::get('usuRol') == 'alumno'): ?>
               <li>
                 <a href="#"><i class="fa fa-user fa-lg"></i> Perfil<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('alumno.principal', Session::get('usuName')) }}">Principal</a>
+                        <a href="<?php echo e(route('alumno.principal', Session::get('usuName'))); ?>">Principal</a>
                     </li>
                         <li>
-                            <a href="{{ route('campus.perfil', Session::get('usuName')) }}">Mi perfil</a>
+                            <a href="<?php echo e(route('campus.perfil', Session::get('usuName'))); ?>">Mi perfil</a>
                         </li>
                     <li>
-                        <a href="{{ route('campus.cambioPass', Session::get('usuName')) }}">Cambiar contraseña</a>
+                        <a href="<?php echo e(route('campus.cambioPass', Session::get('usuName'))); ?>">Cambiar contraseña</a>
                     </li>
                 </ul>
               </li>
-            @endif
+            <?php endif; ?>
 
-            @if (Session::get('usuRol') == 'docente')
+            <?php if(Session::get('usuRol') == 'docente'): ?>
               <li>
                 <a href="#"><i class="fa fa-user fa-lg"></i> Perfil<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('docente.principal', Session::get('usuName')) }}">Principal</a>
+                        <a href="<?php echo e(route('docente.principal', Session::get('usuName'))); ?>">Principal</a>
                     </li>
                     <li>
-                        <a href="{{ route('campus.perfil', Session::get('usuName')) }}">Mi perfil</a>
+                        <a href="<?php echo e(route('campus.perfil', Session::get('usuName'))); ?>">Mi perfil</a>
                     </li>
                     <li>
-                        <a href="{{ route('campus.cambioPass', Session::get('usuName')) }}">Cambiar contraseña</a>
+                        <a href="<?php echo e(route('campus.cambioPass', Session::get('usuName'))); ?>">Cambiar contraseña</a>
                     </li>
                 </ul>
               </li>
-            @endif
+            <?php endif; ?>
           </ul>
         </div>
       </nav>
     </div>
-  @endauth
-  @if (session('info'))
+  <?php endif; ?>
+  <?php if(session('info')): ?>
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <div class="alert alert-success">
-              {{ session('info') }}
+              <?php echo e(session('info')); ?>
+
             </div>
           </div>
         </div>
       </div>
-  @endif
-  @if (count($errors))
+  <?php endif; ?>
+  <?php if(count($errors)): ?>
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <div class="alert alert-danger">
               <ul>
-                @foreach ($errors->all() as $error)
+                <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <li>
-                    {{ $error }}
+                    <?php echo e($error); ?>
+
                   </li>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </ul>
             </div>
           </div>
         </div>
       </div>
-  @endif
-  @yield('content')
+  <?php endif; ?>
+  <?php echo $__env->yieldContent('content'); ?>
 </div>
-@auth
+<?php if(auth()->guard()->check()): ?>
   <!-- Scripts -->
-  <script src="{{ URL::asset('js/main.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/excanvas.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/jquery.knob.min.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/knoob.custom.js') }}" charset="utf-8"></script>
-  @yield('scripts')
-  @yield('script_curso_modal')
-@endauth
+  <script src="<?php echo e(URL::asset('js/main.js')); ?>" charset="utf-8"></script>
+  <script src="<?php echo e(URL::asset('js/excanvas.js')); ?>" charset="utf-8"></script>
+  <script src="<?php echo e(URL::asset('js/jquery.knob.min.js')); ?>" charset="utf-8"></script>
+  <script src="<?php echo e(URL::asset('js/knoob.custom.js')); ?>" charset="utf-8"></script>
+  <?php echo $__env->yieldContent('scripts'); ?>
+  <?php echo $__env->yieldContent('script_curso_modal'); ?>
+<?php endif; ?>
 
 </body>
 </html>

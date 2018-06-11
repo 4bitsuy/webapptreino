@@ -13,7 +13,7 @@ use App\Tema;
 use App\RelTemaModulo;
 use App\RelTemaAlu;
 use App\ArchivosFTP;
-
+use App\Dicta;
 
 class cursoController extends Controller
 {
@@ -29,8 +29,11 @@ class cursoController extends Controller
 
       $AuxRol = $request->session()->get('usuRol');
 
-      $ColTemasCurso = $this->getContenidoCurso($id_curso);
-/*      
+      //$ColTemasCurso = $this->getContenidoCurso($id_curso);
+      $idGrado = $this->getIdGrado($id_curso);
+      $idModulo = $this->getIdModulo($id_curso);
+      $ColTemasCurso = $this->getContenidoCurso($idGrado,$idModulo);
+/*
       if ($AuxRol == 'alumno'){
       }elseif ($AuxRol == 'docente') {
         # code...
@@ -38,18 +41,22 @@ class cursoController extends Controller
           # code...
       } //FIN IF ($AuxRol == 'alumno')
 */
-      return view('campus.cursos.curso', compact(['ColTemasCurso']));
+      return view('campus.cursos.curso', compact(['ColTemasCurso','idGrado','idModulo']));
 
     } //FIN - index
 
+  private function getIdGrado($id_curso){
+    return Dicta::where('dicta_id',$id_curso)->pluck('gra_id')->first();
+  }
+  private function getIdModulo($id_curso){
+    return Dicta::where('dicta_id',$id_curso)->pluck('modu_id')->first();
+  }
+  private function getContenidoCurso($idGrado,$idModulo){
 
-
-  private function getContenidoCurso($id_curso){
-
-    $Cursa        = Cursa::find($id_curso);
-    $Modulo       = Modulo::where('modu_id',$Cursa->modu_id)->first();
-    $cursoTemasId = RelTemaModulo::where('modu_id',$Cursa->modu_id)->pluck('tema_id');
-    $TemaAlumno   = RelTemaAlu::where('alu_id',$Cursa->alu_id)->pluck('tema_id');
+    //$Cursa        = Cursa::where('modu_id',$idModulo)->where('gra_id',$idGrado);
+    $Modulo       = Modulo::find($idModulo);
+    $cursoTemasId = RelTemaModulo::where('modu_id',$idModulo)->pluck('tema_id');
+    //$TemaAlumno   = RelTemaAlu::where('alu_id',$Cursa->alu_id)->pluck('tema_id');
 
 
     //Titulo y descripcion del curso
@@ -61,6 +68,26 @@ class cursoController extends Controller
   $i = 0;
   $ColTemasCurso = [];
   $ColArchivos = [];
+  foreach($cursoTemasId as $tema_id){
+    $Tema = Tema::find($tema_id);
+    $archivos = ArchivosFTP::where('tema_id', $tema_id)->get();//pluck('arch_ruta');
+    $itemArchivos = [
+      'tema_id' => $tema_id,
+      'archivos' => $archivos
+    ];
+
+    if (($Tema->tema_es_cur_corto) && (count($cursoTemasId) == 1)){
+      $curso_titulo         = $Tema->tema_nombre;
+      $curso_descripcion    = $Tema->tema_descripcion;
+    }
+
+    $ColTemasCurso = array_add($ColTemasCurso, $i, $Tema);
+    $ColArchivos = array_add($ColArchivos, $i, $itemArchivos);
+
+    $i++;
+  }
+
+  /*
   foreach($TemaAlumno as $tema_id){
 
     //me quedo con los cursos que pertenezcan al modulo
@@ -93,6 +120,7 @@ class cursoController extends Controller
     }
 
   }
+  */
     $ContenidoCurso = [];
     $ContenidoCurso = [
       'Modulo_titulo'       => $curso_titulo,

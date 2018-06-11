@@ -98,7 +98,7 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
       'as'    => 'docente.principal',
       'uses'  => 'DocenteController@index'
     ]);
-    Route::get('/addlista/{idGrado}', [
+    Route::get('/addlista/{idGrado}/{idModulo}', [
       'as'    => 'docente.lista',
       'uses'  => 'ListaController@addListas'
     ]);
@@ -110,7 +110,7 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
       'as'    => 'docente.guardarLista',
       'uses'  => 'ListaController@guardarLista'
     ]);
-    
+
     Route::get('/curso/{idCurso}', [
       'as' => 'cursos.curso',
       'uses' => 'CursoController@index'
