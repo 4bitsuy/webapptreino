@@ -13,18 +13,20 @@
         <h3>Modificar archivo de "<span id="tema_nombre" class="modal-title"></span>"</h3>
 
         <div class="panel-body form-wrap">
-          {!! Form::model($post, ['route' => 'archivosftp.update', $post->id], 'method' => 'PUT', 'files' => true]) !!}
+          <?php echo Form::model($post, ['route' => 'archivosftp.update', $post->id], 'method' => 'PUT', 'files' => true]); ?>
 
-            @include('campus.archivos.partials.form')
 
-          {!! Form::close() !!}
+            <?php echo $__env->make('campus.archivos.partials.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+          <?php echo Form::close(); ?>
+
         </div>
 
 
 
-      {{-- <div class="modal-footer"> --}}
-        {{-- <input type="submit" clase="btn btn-primary" value="Guardar"> --}}
-      {{-- </div> --}}
+      
+        
+      
     </div>
 
   </div>
