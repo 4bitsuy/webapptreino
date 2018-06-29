@@ -47,17 +47,33 @@ class ListaController extends Controller
     return view('campus.docente.listas', compact(['grado', 'modulo', 'alumnosLista']));
   }
 
-  public function verLista($gradoId){
+  public function verFechasLista($gradoId,$moduloId){
     // ver modulos del grado
     //$relgramod = RelGraMod::where('gra_id', $gradoId)->pluck('modu_id');
     $grado = Grado::find($gradoId);
+    $modulo = Modulo::find($moduloId);
+    $fechas = Lista::where('gra_id', $gradoId)
+              ->where('modu_id',$moduloId)
+              ->groupBy('lisfecha')
+              ->pluck('lisfecha');
 
-    $listas = Lista::where('gra_id', $gradoId)
-              ->groupBy('lisfecha')->pluck('lisfecha');
-
-    return view('campus.admin.verListas', compact(['grado', 'listas']));
+    return view('campus.docente.verFechasLista', compact(['grado', 'modulo', 'fechas']));
   }
 
+  public function verLista($fecha,$idGrado,$idModulo){
+
+    $listas = Lista::where('gra_id',$idGrado)
+                    ->where('modu_id',$idModulo)
+                    ->where('lisfecha',$fecha)
+                    ->get();
+    dd($listas);
+
+    /*
+    echo $fecha;
+    echo $idModulo;
+    echo $idGrado;
+    */
+  }
 
   private function setListas($gradoId, $moduloId){
 
@@ -109,8 +125,7 @@ class ListaController extends Controller
       $lista->save();
     }
 
-    return redirect()->route('docente.lista')
-    ->with('info', 'Lista del día guardada.');
+    return back()->withInput()->with('info', 'Lista del día guardada.');
   }
 
   private function asisteAlumno($alumnoId, $asistencias){

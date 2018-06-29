@@ -159,7 +159,6 @@
   <script src="<?php echo e(URL::asset('js/jquery.knob.min.js')); ?>" charset="utf-8"></script>
   <script src="<?php echo e(URL::asset('js/knoob.custom.js')); ?>" charset="utf-8"></script>
   <?php echo $__env->yieldContent('scripts'); ?>
-  <?php echo $__env->yieldContent('script_curso_modal'); ?>
 <?php endif; ?>
 
 </body>

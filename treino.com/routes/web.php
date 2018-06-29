@@ -77,7 +77,6 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
   // crud archivos.
   Route::resource('/archivos', 'ArchivosFtpController');
 
-
   Route::group(['prefix' => 'alumno'], function(){
     Route::get('/', [
       'as'    => 'alumno.principal',
@@ -87,11 +86,7 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
       'as' => 'cursos.curso',
       'uses' => 'CursoController@index'
     ]);
-
   });
-
-
-
 
   Route::group(['prefix' => 'docente'], function(){
     Route::get('/', [
@@ -102,10 +97,15 @@ Route::group(['namespace' => 'Campus', 'prefix' => 'campus'], function(){
       'as'    => 'docente.lista',
       'uses'  => 'ListaController@addListas'
     ]);
-    Route::get('/lista/{idGrado}', [
+    Route::get('/fechaslista/{idGrado}/{idModulo}', [
+      'as'    => 'docente.verFechaLista',
+      'uses'  => 'ListaController@verFechasLista'
+    ]);
+    Route::get('/lista/{fecha}/{idGrado}/{idModulo}', [
       'as'    => 'docente.verLista',
       'uses'  => 'ListaController@verLista'
     ]);
+
     Route::post('/guardarLista', [
       'as'    => 'docente.guardarLista',
       'uses'  => 'ListaController@guardarLista'
